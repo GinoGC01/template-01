@@ -1,0 +1,98 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/Astro/sections/Footer.astro";
+import Header from "../../components/React/header";
+import "animate.css";
+import { src } from "../../data/mapaFooter.js";
+
+import { team } from "../../data/team.js";
+import Profesional from "../../components/Astro/sections/Profesional.astro";
+const { professional } = Astro.params;
+
+const {
+  nombre,
+  especialidades,
+  posicion,
+  jurisdiccion,
+  carreras,
+  biografia,
+  objetivos,
+  valores,
+  images,
+  contact,
+  id,
+} = team.find((perfil) => perfil.nombre == professional);
+---
+
+<Layout title={nombre}>
+  <Header
+    areasLaborales={"/#Areas-laborales"}
+    about={"/#Sobre-nosotros"}
+    contact={"/#Contacto"}
+    home={"/"}
+    notices={"/#Noticias"}
+    testimonios={"/#Testimonio"}
+    equipo={"/#Equipo"}
+    client:load
+  />
+  
+  <Profesional
+    id={id}
+    posicion={posicion}
+    jurisdiccion={jurisdiccion}
+    imagen={images}
+    biografia={biografia}
+    carreras={carreras}
+    contactos={contact}
+    especialidades={especialidades}
+    nombre={nombre}
+    objetivos={objetivos}
+    valores={valores}
+  />
+  <Footer srcMaps={src} />
+</Layout>
+
+<style is:global>
+  :root {
+    /* variables header principal  */
+    --span-menu-hamb: rgb(255, 255, 255);
+    --a-menu-hamb: rgb(255, 255, 255);
+    --background-nav: grey;
+
+    /* background gradient main */
+    --firstvalue: rgba(8, 8, 8, 0.8);
+    --secondvalue: rgba(45, 62, 158, 0.5);
+
+    /* padding sections */
+    --paddingsection-inline: 20px;
+
+    /* subtitulos */
+
+    --subtitlesection: 1.7em;
+    --paddingsubtilteSection: 20px 30px;
+
+    /* animated */
+    --animate-delay: 0.5s;
+    --animate-delay-1-10s: 0.1s;
+    --animate-delay-2-10s: 0.5s;
+    --animate-delay-3-10s: 0.1s;
+    --animate-delay-4-10s: 0.15s;
+    --animate-delay-5-10s: 0.2s;
+    --animate-delay-6-10s: 0.25s;
+    --animate-delay-7-10s: 0.3s;
+    --animate-delay-8-10s: 0.35s;
+    --animate-delay-9-10s: 0.4s;
+    --animate-delay-10-10s: 0.45s;
+    --animate-delay-11-10s: 0.5s;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    list-style: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+  }
+</style>

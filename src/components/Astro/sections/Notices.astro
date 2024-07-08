@@ -1,0 +1,60 @@
+---
+import { notices } from "../../../data/notices.js";
+import CardNotice from "../cards/CardNotice.astro";
+const newNotices = notices.reverse();
+---
+
+<section id="Noticias">
+  <header>
+    <h3>Noticias</h3>
+  </header>
+  <div class="notices-container">
+    {
+      newNotices?.map((notice) => {
+        return (
+          <CardNotice
+            id={notice.id}
+            category={notice.category}
+            date={notice.date}
+            images={notice.images}
+            synthesis={notice.synthesis}
+            title={notice.title}
+          />
+        );
+      })
+    }
+  </div>
+</section>
+
+<style>
+  section,
+  .notices-container {
+    padding-inline: var(--paddingsection-inline);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    padding-bottom: 20px;
+  }
+
+  section > header {
+    font-size: var(--subtitlesection);
+    padding: var(--paddingsubtilteSection);
+    border-bottom: 1px solid black;
+  }
+
+  @media (width >= 700px) {
+    .notices-container {
+      width: 60%;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+      place-items: center;
+      gap: 1em;
+    }
+    section > header {
+      font-size: var(--subtitlesection-desk);
+      padding: var(--paddingsubtilteSection-desk);
+    }
+  }
+</style>

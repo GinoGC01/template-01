@@ -1,0 +1,122 @@
+---
+interface Props {
+  srcMaps: string;
+}
+
+const { srcMaps } = Astro.props;
+---
+
+<footer class="footer-component">
+  <header>
+    <h4>Estudios Jurídoco | 'Nombre estudio'</h4>
+  </header>
+  <div class="content">
+    <ul>
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li>
+        <a href="#Sobre-nosotros">Sobre Nosotros</a>
+      </li>
+      <li>
+        <a href="#Noticias">Noticias</a>
+      </li>
+      <li>
+        <a href="#">Testimonios</a>
+      </li>
+      <li>
+        <a href="#">Contacto</a>
+      </li>
+    </ul>
+    <iframe
+      src={srcMaps}
+      style="border:0;"
+      width="100%"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  <div class="copy">
+    <p>'Nombre estudio' - Todos los derechos reservados © - 2024</p>
+  </div>
+</footer>
+
+<style>
+  .footer-component {
+    position: relative;
+    padding-top: 20px;
+    background-color: rgba(0, 0, 0, 0.884);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5em;
+  }
+  .footer-component header {
+    width: 90%;
+    text-align: center;
+    padding-bottom: 10px;
+    color: white;
+    font-size: 1.2em;
+    border-bottom: 1px solid white;
+  }
+
+  .content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+
+  #map-footer {
+    grid-column: 1 / 2;
+    background-color: antiquewhite;
+    width: 100%;
+    height: 100%;
+  }
+
+  .footer-component ul {
+    grid-column: 0 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5em;
+    border-right: 1px solid white;
+  }
+
+  .footer-component a {
+    display: block;
+    padding: 0px 20px 5px;
+
+    color: white;
+  }
+
+  .copy {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: white;
+  }
+
+  .copy p {
+    text-wrap: pretty;
+  }
+
+  iframe {
+    display: block;
+    padding: 5px;
+    border-radius: 20px;
+  }
+
+  @media (width > 700px) {
+    .content {
+      width: 50%;
+      height: 300px;
+    }
+
+    iframe {
+      height: 100%;
+      margin-left: 50px;
+    }
+  }
+</style>

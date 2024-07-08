@@ -1,0 +1,95 @@
+---
+import { CardAreaPractica } from "../../React/Cards/CardAreaPractica.jsx";
+import Back from "../ancors/back.astro";
+interface Props {
+  info: any;
+}
+const { info } = Astro.props;
+
+const SECTION_ID = "#Areas-laborales";
+---
+
+<section>
+  <header
+    style={`background: linear-gradient(0deg,var(--firstvalue) 0%,var(--secondvalue) 100%),url("${info.imagen}");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: 10% -10%`}
+  >
+    <Back sectionID={`/${SECTION_ID}`} />
+    <h3 transition:name={`title-${info.nombre}`}>
+      {info.nombre}
+    </h3>
+    <h4>
+      {info.titulo}
+    </h4>
+    <p>
+      {info.subtitulo}
+    </p>
+  </header>
+  <div class="practicasDepartamento-container">
+    <h4>Practias de Departamento:</h4>
+    <ul>
+      {
+        info.practicasDepartamento?.map((practica: any) => {
+          return <CardAreaPractica practica={practica} client:load />;
+        })
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  section {
+    min-height: 100vh;
+  }
+
+  section header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+    padding-top: 3em;
+
+    color: white;
+  }
+
+  section header h3 {
+    font-size: 2.2em;
+  }
+
+  section header h4 {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  section header p {
+    margin-block: 30px;
+    font-weight: 100;
+  }
+
+  .practicasDepartamento-container {
+    padding-inline: var(--paddingsection-inline);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    position: relative;
+  }
+
+  .practicasDepartamento-container::after {
+    content: "";
+    height: 30px;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: -30px;
+    left: 0;
+  }
+
+  .practicasDepartamento-container ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+</style>

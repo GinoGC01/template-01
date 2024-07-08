@@ -1,0 +1,63 @@
+---
+interface Props {
+    link: string;
+    blank: boolean;
+    clase: string;
+    color:string
+}
+
+const { link, blank, clase, color} = Astro.props;
+---
+
+<a href={link} target={blank ? '_blank' : '_self'} class={clase} style=`color: ${color}`>
+    <slot/>
+</a>
+<style>
+    a{
+        color
+    }
+    .min{
+        transform: scale(1);
+    }
+
+    .med {
+        transform: scale(1.1);
+    }
+
+    .max {
+        transform: scale(1.3);
+    }
+    @media (width >= 700px){
+    .min {
+        transform: scale(1.4);
+    }
+    .min:hover{
+        transform: scale(1.5);
+    }
+
+    .min, .med, .max{
+        transition: transform .15s, opacity .15s;
+    }
+    
+    .min:hover, .med:hover, .max:hover{
+        opacity: .5;
+    }
+
+    .med {
+        transform: scale(1.7);
+    }
+    .med:hover{
+        transform: scale(1.8);
+    }
+
+    .max {
+        transform: scale(1.9);
+
+    }
+    .max:hover{
+        transform: scale(2.1);
+    }
+    }
+
+
+</style>

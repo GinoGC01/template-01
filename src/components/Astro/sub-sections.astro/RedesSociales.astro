@@ -1,0 +1,71 @@
+---
+import { contactos } from "../../../data/contactos";
+import { Facebook } from "../../../Icons/FacebookIcon";
+import { LinkedIn } from "../../../Icons/LinkedInIcon";
+import { Instagram } from "../../../Icons/InstagramIcon";
+import { WhatsApp } from "../../../Icons/WhatsApp";
+import { EmailIcon } from "../../../Icons/EmailIcon";
+import Rrss from "../ancors/rrss.astro"
+
+
+const RRSS_ICONS = {
+    Facebook,
+    LinkedIn,
+    Instagram
+}
+
+interface Props {
+    whatsApp: boolean;
+    Email: boolean;
+    RRSS: boolean;
+
+}
+const {whatsApp, Email, RRSS} = Astro.props
+---
+
+<div class="rrss">
+    {
+        contactos?.map((contacto) => {
+            if(contacto.tipo === 'rrss' && RRSS){
+            const iconName = (contacto.nombre === 'LinkedIn' ? 'LinkedIn' : contacto.nombre)
+            const Icon =  RRSS_ICONS[iconName]
+
+            return(
+               <Rrss blank={true} clase="max" link={contacto.url} color="white">
+                   <Icon/>
+               </Rrss>
+               
+            )
+        }
+
+        if(contacto.tipo === 'wpp' && whatsApp){
+            return(
+                <Rrss blank={true} clase="min" link={contacto.number} color="white">
+                   <WhatsApp/>
+               </Rrss>
+
+            )
+        }
+
+        if(contacto.tipo === 'email' && Email){
+            return(
+            <Rrss blank={true} clase="min" link={`mailto:${contacto.email}`} color="white">
+                   <EmailIcon/>
+               </Rrss>
+            )
+        }
+        })
+    }
+
+<style>
+    .rrss{
+        display: flex;
+        gap: .7em;
+    }
+
+    @media (width >= 700px){
+        .rrss{
+            gap: 1.2em;
+        }
+    }
+</style>

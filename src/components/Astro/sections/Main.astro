@@ -1,0 +1,212 @@
+---
+import Header from "../../React/header.jsx";
+import { dataDescription } from "../../../data/dataDescription";
+
+import CallToActions from "../ancors/callToActions.astro";
+import RedesSociales from "../sub-sections.astro/RedesSociales.astro";
+import AreasLaborales from "../sub-sections.astro/ListOfAreasLaborales.astro";
+
+const { main } = dataDescription;
+const { header } = main;
+const { ctaButtons } = main;
+const { button01, button02 } = ctaButtons;
+---
+
+<main>
+  <Header
+    about={"/#Sobre-nosotros"}
+    contact={"/#Contacto"}
+    home={"/"}
+    notices={"/#Noticias"}
+    testimonios={"/#Testimonios"}
+    equipo={"/#Equipo"}
+    areasLaborales={"/#Areas-laborales"}
+    client:load
+  />
+  <section class="hero">
+    <div class="hero-content">
+      <div class="rrss">
+        <RedesSociales Email={false} RRSS={true} whatsApp={false} />
+      </div>
+      <header>
+        <h1>{header.title}</h1>
+        <h2>{header.subtitle}</h2>
+      </header>
+      <div class="buttons">
+        <CallToActions
+          blank={button01.blank}
+          link={button01.link}
+          text={button01.text}
+          primaryAction={button01.primaryAction}
+          styles={button01.styles}
+        />
+        <CallToActions
+          blank={button02.blank}
+          link={button02.link}
+          text={button02.text}
+          primaryAction={button02.primaryAction}
+          styles={button02.styles}
+        />
+      </div>
+    </div>
+
+    <aside class="hero-content-desk">
+      <header>
+        <h4>Áreas de practica -</h4>
+      </header>
+      <AreasLaborales textCenter={false} />
+    </aside>
+  </section>
+</main>
+
+<style>
+  .hero {
+    position: relative;
+    display: flex;
+    gap: 2.5em;
+
+    min-height: 100vh;
+    background: linear-gradient(
+        0deg,
+        var(--firstvalue) 0%,
+        var(--secondvalue) 100%
+      ),
+      url("../../../../../images/temp/background-03.webp");
+    background-repeat: no-repeat;
+    background-position: 15% 50%;
+    background-attachment: fixed;
+  }
+
+  .hero-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em;
+    justify-content: center;
+    padding-inline: var(--paddingsection-inline);
+    padding-bottom: 15em;
+  }
+
+  .hero-content-desk {
+    display: none;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-left: 33px solid transparent;
+    border-top: 370px solid transparent;
+    border-right: 250px solid #ffffff;
+    border-bottom: 50px solid #ffffff;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-right: 25px solid transparent;
+    border-top: 250px solid transparent;
+    border-left: 130px solid #ffffff;
+    border-bottom: 50px solid #ffffff;
+  }
+
+  .hero header {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .rrss {
+    transform: translateX(2px);
+  }
+
+  .hero h2 {
+    font-size: 1.75em;
+    color: white;
+  }
+
+  .hero h1 {
+    font-size: 1.5em;
+    font-weight: 100;
+    color: white;
+  }
+
+  .hero .buttons {
+    display: flex;
+    gap: 1em;
+  }
+
+  @media (width >= 700px) {
+    .hero {
+      padding-inline: var(--paddingsection-inline-desktop);
+    }
+
+    .hero::before,
+    .hero::after {
+      display: none;
+    }
+
+    .hero-content-desk {
+      position: relative;
+      height: 100vh;
+      background-color: var(--secondvalue);
+      background-color: rgba(8, 32, 109, 0.486);
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+      align-items: flex-start;
+      justify-content: center;
+      width: 50%;
+      z-index: 1000;
+      padding-inline: 70px;
+    }
+
+    .hero-content-desk::after {
+      content: "";
+      width: 100%;
+      height: 80%;
+      position: absolute;
+      top: 5.5em;
+      left: 50px;
+      border: 1px solid rgb(192, 192, 192, 0.5);
+      z-index: -1;
+    }
+
+    .hero-content-desk::before {
+      content: "";
+      width: 110%;
+      height: 82%;
+      position: absolute;
+      top: 9em;
+
+      left: 100px;
+      border: 2px solid rgba(13, 21, 128, 0.5);
+      z-index: -1;
+    }
+
+    .hero-content-desk h4 {
+      font-size: 2.3em;
+      font-weight: 200;
+      color: white;
+    }
+
+    .rrss {
+      transform: translateX(5px);
+    }
+
+    .hero h2 {
+      font-size: 2.7em;
+    }
+
+    .hero h1 {
+      font-size: 2em;
+    }
+  }
+</style>

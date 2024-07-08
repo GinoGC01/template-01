@@ -1,0 +1,92 @@
+.cardAreaPractica-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5em;
+}
+
+.cardAreaPractica-container > button {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  background-color: transparent;
+  border: none;
+  font-size: 1em;
+}
+
+.cardAreaPractica-container > button > span {
+  display: grid;
+  place-content: center;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 1px solid grey;
+}
+
+.practicasDepartamento-container {
+  padding-bottom: 30px;
+}
+
+/* detalles area-practica */
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1em;
+  overflow: hidden;
+  padding: 5px;
+}
+
+.details p {
+  font-size: 0.9em;
+}
+
+/* tipos */
+
+.tipo-conteiner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1em;
+}
+
+.tipo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-inline-start: 10px;
+  gap: 0.5em;
+  padding-bottom: 10px;
+  border-bottom: 1px solid grey;
+}
+
+.cardPDT-button,
+.CardPDTRequisitos-button {
+  background-color: transparent;
+  padding: 5px 10px;
+  border: 1px solid grey;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.cardPDT-open,
+.CardPDTRequisitos-open {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.item-container {
+  padding: 10px;
+}
+
+.requisito {
+  display: flex;
+  gap: 0.4em;
+  align-items: center;
+  justify-content: flex-start;
+  padding-block: 5px;
+  font-size: 0.9em;
+}
+
+/* cardPDTRequisitos */

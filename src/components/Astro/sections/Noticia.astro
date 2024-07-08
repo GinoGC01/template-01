@@ -1,0 +1,140 @@
+---
+import Back from "../ancors/back.astro";
+interface Props {
+  info: any;
+}
+
+const { info } = Astro.props;
+
+const SECTION_ID = "#Noticias";
+---
+
+<section>
+  <Back sectionID={`/${SECTION_ID}`} />
+  <header>
+    <span class="antetitle">{info.anteTitle}</span>
+    <h1>{info.title}</h1>
+    <span class="date">{info.date}</span>
+  </header>
+
+  <article>
+    <figure>
+      <img
+        src={info.images[0]}
+        alt={`imágen de ${info.title}`}
+        transition:name={`image-${info.images[0]}`}
+      />
+    </figure>
+    <span>{info.epigrafe[0]}</span>
+    {
+      info.body?.map((parrafo: string) => {
+        return <p>{parrafo}</p>;
+      })
+    }
+  </article>
+  <footer class="footer-article_notice">
+    <h3>Palabras claves</h3>
+    <ul>
+      {
+        info.keyWords?.map((keyword: string) => {
+          return <li>{keyword}</li>;
+        })
+      }
+    </ul>
+  </footer>
+</section>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+  }
+
+  header {
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    top: 50vh;
+    transform: translateY(-100%);
+
+    color: white;
+    padding: 10px;
+  }
+
+  .antetitle {
+    font-size: 0.8em;
+    opacity: 0.8;
+  }
+
+  h1 {
+    margin: 8px 0;
+  }
+
+  .date {
+    font-size: 0.6em;
+    opacity: 0.7;
+  }
+
+  figure {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+  }
+
+  figure::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondvalue);
+    background: linear-gradient(0deg, #0000009a 0%, var(--secondvalue) 100%);
+    position: absolute;
+    top: 0;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  article > span {
+    padding: 5px;
+    font-size: 0.8em;
+    opacity: 0.5;
+  }
+
+  p {
+    padding: 20px 10px;
+    line-height: 1.5em;
+  }
+
+  .footer-article_notice {
+    width: 100%;
+    border-top: 1px solid black;
+    padding: 10px 15px;
+    background-color: var(--firstvalue);
+  }
+
+  .footer-article_notice h3 {
+    width: 100%;
+    text-align: center;
+    margin-block: 10px;
+    color: white;
+  }
+
+  .footer-article_notice ul {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 15px;
+  }
+
+  .footer-article_notice li {
+    list-style: disc;
+    color: white;
+  }
+</style>

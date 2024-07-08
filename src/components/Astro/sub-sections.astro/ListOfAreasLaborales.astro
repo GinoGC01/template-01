@@ -1,0 +1,78 @@
+---
+import { Civil } from "../../../Icons/Civil.jsx";
+import { Penal } from "../../../Icons/Penal.jsx";
+import { Laboral } from "../../../Icons/Laboral.jsx";
+import { areasPracticas } from "../../../data/areasPractica.js";
+
+const AREA_ICONS = {
+  Civil,
+  Penal,
+  Laboral,
+};
+
+interface Props {
+  textCenter: boolean;
+}
+
+const { textCenter } = Astro.props;
+---
+
+<ul id="Areas-laborales">
+  {
+    areasPracticas?.map(({ area, nombre }) => {
+      const iconName = area === "Civil" ? "Civil" : area;
+      const Icon = AREA_ICONS[iconName];
+      return (
+        <li class={textCenter ? "center" : "start"}>
+          {Icon && <Icon />}
+          <a href={`/areas/${area}`} transition:name={`title-${nombre}`}>
+            {nombre}
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>
+
+<style>
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 2em;
+    color: #e3e1ff;
+  }
+
+  .center {
+    justify-content: center;
+  }
+
+  .start {
+    justify-content: start;
+  }
+
+  .start,
+  .center {
+    transition:
+      opacity 0.15s,
+      scale 0.2s;
+  }
+
+  .start:hover,
+  .center:hover {
+    opacity: 0.5;
+    scale: 1.1;
+  }
+
+  a {
+    font-weight: 500;
+    color: #dddddd;
+  }
+</style>

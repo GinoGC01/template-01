@@ -1,0 +1,59 @@
+---
+import { areasPracticas } from "../../data/areasPractica";
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/Astro/sections/Footer.astro";
+import { src } from "../../data/mapaFooter.js";
+import AreaLaboral from "../../components/Astro/sections/AreaLaboral.astro";
+import Header from "../../components/React/header.jsx"
+
+const { area } = Astro.params;
+const info = areasPracticas.find((areaPractica) => areaPractica.area == area);
+---
+
+<Layout title={info.nombre}>
+  <Header
+    areasLaborales={"/#Areas-laborales"}
+    about={"/#Sobre-nosotros"}
+    contact={"/#Contacto"}
+    home={"/"}
+    notices={"/#Noticias"}
+    testimonios={"/#Testimonio"}
+    equipo={"/#Equipo"}
+    client:load
+  />
+  <AreaLaboral info={info} />
+  <Footer srcMaps={src} />
+</Layout>
+
+<style is:global>
+  :root {
+    /* variables header principal  */
+    --span-menu-hamb: rgb(255, 255, 255);
+    --a-menu-hamb: rgb(255, 255, 255);
+    --background-nav: grey;
+
+    /* background gradient main */
+    --firstvalue: rgba(8, 8, 8, 0.8);
+    --secondvalue: rgba(45, 62, 158, 0.5);
+
+    /* padding sections */
+    --paddingsection-inline: 20px;
+
+    /* subtitulos */
+
+    --subtitlesection: 1.7em;
+    --paddingsubtilteSection: 20px 30px;
+
+    /* animated */
+    --animate-delay: 0.3s;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    list-style: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+  }
+</style>

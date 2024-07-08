@@ -1,0 +1,114 @@
+---
+import { contactos } from "../../../data/contactos.js";
+import { Facebook } from "../../../Icons/FacebookIcon.jsx";
+import { LinkedIn } from "../../../Icons/LinkedInIcon.jsx";
+import { WhatsApp } from "../../../Icons/WhatsApp.jsx";
+import { EmailIcon } from "../../../Icons/EmailIcon";
+import { Instagram } from "../../../Icons/InstagramIcon";
+const RRSS_ICONS = {
+  Facebook,
+  LinkedIn,
+  Instagram,
+};
+---
+
+<section id="Contacto">
+  <header>
+    <h3>Contacto</h3>
+  </header>
+  <article>
+    <header>
+      <h4>Contamos con los siguientes medios de contacto</h4>
+    </header>
+    <ul>
+      {
+        contactos?.map((contacto) => {
+          if (contacto.tipo === "rrss") {
+            const iconName =
+              contacto.nombre === "LinkedIn" ? "LinkedIn" : contacto.nombre;
+            const Icon = RRSS_ICONS[iconName];
+
+            return (
+              <li>
+                <a href={contacto.url}>
+                  <Icon />
+                </a>
+              </li>
+            );
+          }
+
+          if (contacto.tipo === "wpp") {
+            return (
+              <li>
+                <a href={contacto.number}>
+                  <WhatsApp />
+                </a>
+              </li>
+            );
+          }
+
+          if (contacto.tipo === "email") {
+            return (
+              <li>
+                <a href={`mailto: ${contacto.email}`}>
+                  <EmailIcon />
+                </a>
+              </li>
+            );
+          }
+        })
+      }
+    </ul>
+    <p>No dudes en consultar</p>
+    <span> ¡Estamos para ayudarte! </span>
+  </article>
+</section>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-inline: var(--paddingsection-inline);
+  }
+
+  section > header {
+    font-size: var(--subtitlesection);
+    padding: var(--paddingsubtilteSection);
+    border-bottom: 1px solid black;
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    padding: 20px 0;
+  }
+
+  ul {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    justify-content: center;
+  }
+
+  li a {
+    font-size: 2em;
+    color: black;
+  }
+
+  article span {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  @media (width > 700px) {
+    section > header {
+      font-size: var(--subtitlesection-desk);
+      padding: var(--paddingsubtilteSection-desk);
+    }
+  }
+</style>

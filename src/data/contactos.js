@@ -1,0 +1,42 @@
+export const contactos = [
+  {
+    id: 1,
+    nombre: "WhatsApp",
+    tipo: "wpp",
+    number: "11222333",
+    username: "username",
+    active: true,
+  },
+  {
+    id: 2,
+    nombre: "Email",
+    tipo: "email",
+    email: "example@example.com",
+    username: "username",
+    active: true,
+  },
+  {
+    id: 3,
+    nombre: "Facebook",
+    tipo: "rrss",
+    url: "facebook.com",
+    username: "username",
+    active: true,
+  },
+  {
+    id: 4,
+    nombre: "LinkedIn",
+    tipo: "rrss",
+    url: "LinkedIn.com",
+    username: "username",
+    active: true,
+  },
+  {
+    id: 5,
+    nombre: "Instagram",
+    tipo: "rrss",
+    url: "Isntagram.com",
+    username: "username",
+    active: true,
+  },
+];

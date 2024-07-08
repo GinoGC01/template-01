@@ -1,0 +1,57 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Main from "../components/Astro/sections/Main.astro";
+import About from "../components/Astro/sections/About.astro";
+import Notices from "../components/Astro/sections/Notices.astro";
+import Footer from "../components/Astro/sections/Footer.astro";
+import Team from "../components/Astro/sections/Team.astro";
+import { src } from "../data/mapaFooter.js";
+import Testimonies from "../components/Astro/sections/Testimonies.astro";
+import Contact from "../components/Astro/sections/Contact.astro";
+import AreasLaborales from "../components/Astro/sections/AreasLaborales.astro";
+---
+
+<Layout title="Template-01">
+  <Main />
+  <About />
+  <AreasLaborales />
+  <Notices />
+  <Team />
+  <Testimonies />
+  <Contact />
+  <Footer srcMaps={src} />
+</Layout>
+<style is:global>
+  :root {
+    /* variables header principal  */
+    --span-menu-hamb: rgb(255, 255, 255);
+    --a-menu-hamb: rgb(255, 255, 255);
+    --background-nav: grey;
+
+    /* background gradient main */
+    --firstvalue: rgba(8, 8, 8, 0.8);
+    --firstvalue1: rgba(8, 8, 8, 0.8);
+    --secondvalue: rgba(45, 62, 158, 0.5);
+    --secondvalue08: rgba(45, 62, 158, 0.8);
+
+    /* padding sections */
+    --paddingsection-inline: 20px;
+    --paddingsection-inline-desktop: 200px;
+
+    /* subtitulos */
+
+    --subtitlesection: 1.7em;
+    --subtitlesection-desk: 2em;
+    --paddingsubtilteSection: 20px 30px;
+    --paddingsubtilteSection-desk: 50px;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    list-style: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+  }
+</style>

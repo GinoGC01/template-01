@@ -1,0 +1,149 @@
+---
+interface Props {
+  img: string;
+  nombre: string;
+  especialidad: string[];
+  presentacion: string;
+  id: string;
+}
+const { img, nombre, especialidad, presentacion, id } = Astro.props;
+import CallToActions from "../ancors/callToActions.astro";
+---
+
+<li id={id}>
+  <div class="button">
+    <CallToActions
+      blank={false}
+      link={`/profesionales/${nombre}`}
+      text="Saber mas"
+      styles={true}
+      color="#fff"
+      background="rgba(0, 0, 0, 0.5)"
+    />
+  </div>
+  <section>
+    <header>
+      <h4>{nombre}</h4>
+      <strong>- {especialidad[0]} -</strong>
+    </header>
+    <p>{presentacion}</p>
+  </section>
+  <figure>
+    <img
+      src={img}
+      alt=`Foto de ${nombre}, abogado`
+      transition:name={`image-${nombre}`}
+      loading="lazy"
+    />
+  </figure>
+</li>
+
+<style>
+  li {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    gap: 0.5em;
+    margin-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7em;
+    width: 100%;
+    padding: 0;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  li section > header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.3em;
+    align-items: center;
+    justify-content: center;
+  }
+
+  li section > header h4 {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  li section > header strong {
+    font-weight: 100;
+    font-size: 1.1em;
+    opacity: 0.7;
+  }
+
+  .button {
+    display: flex;
+    width: 8em;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* imagen */
+
+  figure {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    padding: 10px 30px 0;
+    border-top: 1px solid rgba(128, 128, 128, 0.3);
+    transition: scale 0.2s;
+  }
+
+  figure::after {
+    content: "";
+    width: 97%;
+    height: 350px;
+    position: absolute;
+    border-radius: 40px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    background: linear-gradient(
+      0deg,
+      var(--secondvalue) 0%,
+      transparent 50%,
+      transparent 100%
+    );
+    z-index: -1;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 0 -15%;
+  }
+
+  @media (width > 700px) {
+    .button {
+    }
+    .button:hover ~ figure {
+      scale: 1.03;
+      filter: contrast(1.08);
+    }
+
+    li {
+      border: 1px solid rgba(128, 128, 128, 0.3);
+      border-radius: 20px;
+      height: 100%;
+    }
+
+    figure {
+      border: none;
+    }
+
+    section {
+      padding: 20px;
+    }
+  }
+</style>

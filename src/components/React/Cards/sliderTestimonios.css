@@ -1,0 +1,88 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  padding-inline: 10px;
+  border-radius: 10px;
+  border: 1px solid grey;
+}
+
+.swiper-slide .header-slider {
+  display: flex;
+  grid-template-rows: 7em 1fr;
+}
+
+.swiper-slide figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 5em;
+  height: 5em;
+}
+
+.user {
+  padding: 5px;
+  border-radius: 50%;
+  border: 1px solid #00000048;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(2.9);
+  color: grey;
+}
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5em;
+  padding: 5px;
+}
+
+.header-data {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nombre {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.fecha {
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+.data p {
+  text-align: start;
+  text-wrap: pretty;
+  font-size: 0.9em;
+  width: 100%;
+}

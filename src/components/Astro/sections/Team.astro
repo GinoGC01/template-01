@@ -1,0 +1,153 @@
+---
+import { Arrow } from "../../../Icons/arrow";
+import { team } from "../../../data/team.js";
+import CardTeam from "../cards/CardTeam.astro";
+---
+
+<section id="Equipo">
+  <header>
+    <h3>Nuestro equipo</h3>
+  </header>
+  <div class="cards-container">
+    <ul>
+      {
+        team?.map(({ especialidades, images, nombre, presentacion, id }) => {
+          const imagen = images[0];
+          return (
+            <CardTeam
+              especialidad={especialidades}
+              img={imagen}
+              nombre={nombre}
+              presentacion={presentacion}
+              id={id}
+            />
+          );
+        })
+      }
+      {
+        team.length % 2 != 0 && (
+          <li>
+            <a href="#">
+              <span class="content">Contactanos</span>
+              <span class="arrow">
+                <Arrow />
+              </span>
+              <span class="bg" />
+            </a>
+          </li>
+        )
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+    padding-inline: var(--paddingsection-inline);
+    margin-bottom: 10px;
+  }
+
+  header h3 {
+    font-size: var(--subtitlesection);
+    padding: var(--paddingsubtilteSection);
+    border-bottom: 1px solid black;
+  }
+
+  li {
+    display: none;
+  }
+
+  @media (width > 700px) {
+    header h3 {
+      font-size: var(--subtitlesection-desk);
+      padding: var(--paddingsubtilteSection-desk);
+    }
+    .cards-container ul {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+      place-items: center;
+      gap: 1em;
+    }
+
+    li {
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin-top: 20px;
+      background: linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.7) 0%,
+          rgba(255, 255, 255, 1) 100%
+        ),
+        url("../../../../../images/temp/background-04.webp");
+      background-repeat: no-repeat;
+      background-position: 15% 50%;
+      background-size: cover;
+      border-radius: 20px;
+    }
+
+    a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      border-radius: 20px;
+      font-weight: 400;
+    }
+
+    a:hover .bg {
+      filter: grayscale(1);
+      background-color: rgba(0, 0, 0, 0.2);
+      border: none;
+    }
+
+    a:hover .content,
+    a:hover .arrow {
+      font-size: 3em;
+      color: rgb(255, 255, 255);
+    }
+
+    a:hover .arrow {
+      transform: translate(20px, 8px);
+    }
+
+    .content,
+    .arrow {
+      position: relative;
+      z-index: 1000;
+      font-size: 2em;
+      font-weight: 200;
+      transition: font-size 0.2s;
+      color: grey;
+    }
+
+    .arrow {
+      transform: translate(0, 6px);
+      transition:
+        translateY 0.2s,
+        translateX 0.2s 0.2s;
+    }
+
+    .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 20px;
+      border: 1px solid rgba(128, 128, 128, 0.3);
+      transition:
+        filter 0.2s,
+        background-color 0.2s,
+        scale 0.2s;
+    }
+  }
+</style>

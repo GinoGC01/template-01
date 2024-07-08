@@ -1,0 +1,53 @@
+---
+interface Props {
+  text: string;
+  link: string;
+  blank: boolean;
+  primaryAction?: boolean;
+  styles: boolean;
+  color?: string;
+  background?: string;
+}
+
+const { text, link, blank, primaryAction, color, styles, background } =
+  Astro.props;
+---
+
+<a
+  href={link}
+  title={`${text} HREF`}
+  target={blank ? "_blank" : "_self"}
+  class={primaryAction ? "primaryAction" : "secondaryAction"}
+  style={styles ? `background:${background}; color:${color}` : ""}
+>
+  {text}
+</a>
+
+<style>
+  a {
+    display: block;
+    padding: 10px 30px;
+    border-radius: 20px;
+    transition:
+      scale 0.2s,
+      opacity 0.2s;
+  }
+
+  a:hover {
+    scale: 1.1;
+    opacity: 0.8;
+  }
+
+  .primaryAction {
+    background-color: aliceblue;
+    color: black;
+    font-size: 0.85em;
+  }
+
+  .secondaryAction {
+    border: 1px solid white;
+    color: white;
+    backdrop-filter: blur(10px);
+    font-size: 0.85em;
+  }
+</style>

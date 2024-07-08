@@ -1,0 +1,44 @@
+---
+import ListOfAreasLaborales from "../sub-sections.astro/ListOfAreasLaborales.astro";
+---
+
+<section id="Areas-laborales">
+  <header>
+    <h3>Areas Laborales</h3>
+  </header>
+  <ListOfAreasLaborales textCenter={true} />
+</section>
+
+<style>
+  section {
+    padding-inline: var(--paddingsection-inline);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4em;
+    padding-bottom: 20px;
+    padding-block: 50px;
+    background-color: var(--secondvalue);
+    background: linear-gradient(
+        0deg,
+        var(--firstvalue) 0%,
+        var(--secondvalue08) 100%
+      ),
+      url("../../../../../images/temp/areas-laborales-bg.webp");
+    background-position: 50%;
+    background-attachment: fixed;
+  }
+
+  section > header {
+    font-size: var(--subtitlesection);
+    padding: var(--paddingsubtilteSection);
+    border-bottom: 1px solid rgb(255, 255, 255);
+    color: white;
+  }
+
+  @media (width >= 700px) {
+    section {
+      display: none;
+    }
+  }
+</style>
