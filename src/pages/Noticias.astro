@@ -1,33 +1,27 @@
 ---
-import { areasPracticas } from "../../data/areasPractica";
-import Layout from "../../layouts/Layout.astro";
-import Footer from "../../components/Astro/sections/Footer.astro";
-import { src } from "../../data/mapaFooter.js";
-import AreaLaboral from "../../components/Astro/sections/AreaLaboral.astro";
-import Header from "../../components/React/header.jsx"
-
-const { area } = Astro.params;
-const info = areasPracticas.find((areaPractica) => areaPractica.area == area);
+import Header from "../components/React/header"
+import Layout from "../layouts/Layout.astro"
+import {Search} from '../Icons/Search.jsx'
+import SectionNotices from '../components/React/SectionNotices.jsx'
 ---
 
-<Layout title={info.nombre}>
-  <Header
-    areasLaborales={"/#Areas-laborales"}
+<Layout title="Noticias">
+    <Header
     about={"/#Sobre-nosotros"}
     contact={"/#Contacto"}
     home={"/"}
-    notices={"/Notices"}
+    notices={"/Noticias"}
     lastNotices={'/#Ultimas-noticias'}
-    testimonios={"/#Testimonio"}
+    testimonios={"/#Testimonios"}
     equipo={"/#Equipo"}
-    client:load
-  />
-  <AreaLaboral info={info} />
-  <Footer srcMaps={src} />
+    areasLaborales={"/#Areas-laborales"}
+    client:load/>
+
+    <SectionNotices client:load/>
 </Layout>
 
 <style is:global>
-  :root {
+:root {
     /* variables header principal  */
     --span-menu-hamb: rgb(255, 255, 255);
     --a-menu-hamb: rgb(255, 255, 255);
@@ -35,18 +29,20 @@ const info = areasPracticas.find((areaPractica) => areaPractica.area == area);
 
     /* background gradient main */
     --firstvalue: rgba(8, 8, 8, 0.8);
+    --firstvalue1: rgba(8, 8, 8, 0.8);
     --secondvalue: rgba(45, 62, 158, 0.5);
+    --secondvalue08: rgba(45, 62, 158, 0.8);
 
     /* padding sections */
     --paddingsection-inline: 20px;
+    --paddingsection-inline-desktop: 200px;
 
     /* subtitulos */
 
     --subtitlesection: 1.7em;
+    --subtitlesection-desk: 2em;
     --paddingsubtilteSection: 20px 30px;
-
-    /* animated */
-    --animate-delay: 0.3s;
+    --paddingsubtilteSection-desk: 50px;
   }
   * {
     margin: 0;
@@ -56,5 +52,9 @@ const info = areasPracticas.find((areaPractica) => areaPractica.area == area);
     list-style: none;
     text-decoration: none;
     scroll-behavior: smooth;
+  }
+
+  section{
+    padding-top: 100px;
   }
 </style>

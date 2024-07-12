@@ -1,0 +1,73 @@
+.card-notices_container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding: 15px 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  .card-notices_container header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card-notices_container span {
+    font-weight: 200;
+    font-size: 0.8em;
+  }
+
+  .card-notices_container > div > span {
+    width: 100%;
+    text-align: start;
+    padding-block: 3px;
+  }
+
+  .card-notices_container div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5em;
+  }
+
+  .card-notices_container div p {
+    width: 100%;
+    text-align: left;
+  }
+
+  .card-notices_container div figure {
+    width: 100%;
+  }
+
+  .card-notices_container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .button-cta a {
+    display: block;
+    padding: 10px 30px;
+    border-radius: 20px;
+    transition:
+      scale 0.2s,
+      opacity 0.2s;
+  }
+
+  .button-cta a:hover {
+    scale: 1.1;
+    opacity: 0.8;
+  }
+
+  .primaryAction {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 0.85em;
+  }
+
+  @media (width >= 700px) {
+    .card-notices_container div figure {
+      height: 25em;
+      width: 100%;
+    }
+  }

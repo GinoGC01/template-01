@@ -6,6 +6,7 @@ export default function Header({
   about,
   contact,
   notices,
+  lastNotices,
   testimonios,
   equipo,
   areasLaborales,
@@ -84,6 +85,9 @@ export default function Header({
           </li>
           <li className="action">
             <a href={areasLaborales}>Areas Laborales</a>
+          </li>
+          <li className="action">
+            <a href={lastNotices}>Ultimas Noticias</a>
           </li>
           <li className="action">
             <a href={notices}>Noticias</a>

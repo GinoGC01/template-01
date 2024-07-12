@@ -1,16 +1,18 @@
 ---
 import { notices } from "../../../data/notices.js";
 import CardNotice from "../cards/CardNotice.astro";
+import CTA01 from "../cards/CTA01.astro";
 const newNotices = notices.reverse();
+const shortNotices = newNotices.slice(0, 3)
 ---
 
-<section id="Noticias">
+<section id="Ultimas-noticias">
   <header>
-    <h3>Noticias</h3>
+    <h3>Ultimas noticias</h3>
   </header>
   <div class="notices-container">
     {
-      newNotices?.map((notice) => {
+      shortNotices?.map((notice) => {
         return (
           <CardNotice
             id={notice.id}
@@ -22,6 +24,10 @@ const newNotices = notices.reverse();
           />
         );
       })
+    }
+
+    {
+      shortNotices.length % 2 != 0 && <CTA01 message="Ver más" url="/Noticias" image="../../../../../images/temp/notices/noticia-01.jpeg"/>
     }
   </div>
 </section>
@@ -49,7 +55,6 @@ const newNotices = notices.reverse();
       margin: auto;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
-      place-items: center;
       gap: 1em;
     }
     section > header {

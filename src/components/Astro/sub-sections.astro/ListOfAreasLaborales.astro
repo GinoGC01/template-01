@@ -25,6 +25,7 @@ const { textCenter } = Astro.props;
       return (
         <li class={textCenter ? "center" : "start"}>
           {Icon && <Icon />}
+          {/* /carpeta/parámetro */}
           <a href={`/areas/${area}`} transition:name={`title-${nombre}`}>
             {nombre}
           </a>

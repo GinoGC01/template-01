@@ -5,7 +5,7 @@ export const testimonios = [
     fecha: "10/06/2024",
     testimonio:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem facere similique aspernatur in fuga officia dignissimos",
-    img: "../../public/images/temp/user-01.webp",
+    img: "../../../images/temp/user-01.webp",
     puntuacion: 3,
   },
   {
@@ -14,7 +14,7 @@ export const testimonios = [
     fecha: "10/06/2024",
     testimonio:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem facere similique aspernatur in fuga officia dignissimos",
-    img: "../../public/images/temp/user-02.jpeg",
+    img: "../../../images/temp/user-02.jpeg",
     puntuacion: 5,
   },
   {

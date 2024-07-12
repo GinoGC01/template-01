@@ -1,20 +1,25 @@
 ---
+import {notices} from '../../../data/notices.js'
 import { CardAreaPractica } from "../../React/Cards/CardAreaPractica.jsx";
 import Back from "../ancors/back.astro";
+import CardNotice from '../cards/CardNotice.astro';
 interface Props {
   info: any;
 }
 const { info } = Astro.props;
 
 const SECTION_ID = "#Areas-laborales";
+
+
+const noticiasFiltradas = notices.filter(notice => notice.category == info.nombre)
+const shortNotices = noticiasFiltradas.slice(0, 2)
 ---
 
 <section>
   <header
     style={`background: linear-gradient(0deg,var(--firstvalue) 0%,var(--secondvalue) 100%),url("${info.imagen}");
-    background-attachment: fixed;
     background-repeat: no-repeat;
-    background-position: 10% -10%`}
+    background-size: cover;`}
   >
     <Back sectionID={`/${SECTION_ID}`} />
     <h3 transition:name={`title-${info.nombre}`}>
@@ -28,14 +33,41 @@ const SECTION_ID = "#Areas-laborales";
     </p>
   </header>
   <div class="practicasDepartamento-container">
-    <h4>Practias de Departamento:</h4>
-    <ul>
-      {
-        info.practicasDepartamento?.map((practica: any) => {
-          return <CardAreaPractica practica={practica} client:load />;
-        })
-      }
-    </ul>
+    <div class="practicasDepartamento-container_list">
+      <h4>Practias de Departamento:</h4>
+      <ul>
+        {
+          info.practicasDepartamento?.map((practica: any) => {
+            return <CardAreaPractica practica={practica} client:load />;
+          })
+        }
+      </ul>
+    </div>
+    <div class="practicasDepartamento-container_notices">
+      <h4>Noticias relacionadas</h4>
+        {noticiasFiltradas.length == 0 ?  
+        <p>No hay noticias para mostrar en este momento</p>:
+        <ul>
+          {
+            shortNotices?.map((notice) => {
+              return <CardNotice id={notice.id}
+              category={notice.category}
+              date={notice.date}
+              images={notice.images}
+              synthesis={notice.synthesis}
+              title={notice.title} />
+            })
+          }
+          {noticiasFiltradas.length > 2 && 
+          <a href="/#Noticias">
+            <span class="no-hover">ver más</span>
+            <span class="hover"> +</span>
+          </a>}
+        </ul>}
+        
+    </div>
+
+
   </div>
 </section>
 
@@ -68,7 +100,7 @@ const SECTION_ID = "#Areas-laborales";
     font-weight: 100;
   }
 
-  .practicasDepartamento-container {
+  .practicasDepartamento-container, .practicasDepartamento-container_list {
     padding-inline: var(--paddingsection-inline);
     display: flex;
     flex-direction: column;
@@ -87,9 +119,103 @@ const SECTION_ID = "#Areas-laborales";
     left: 0;
   }
 
+  .practicasDepartamento-container_list{
+    padding: 0;
+  }
+
   .practicasDepartamento-container ul {
     display: flex;
     flex-direction: column;
     gap: 1.5em;
+    padding: 0;
+  }
+
+  .practicasDepartamento-container_notices{
+      padding: 0px;
+    }
+
+    .practicasDepartamento-container_notices h4{
+      margin-block: 20px;
+    }
+
+    .practicasDepartamento-container_notices a {
+      display: block;
+      width: 100%;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, .2);
+      text-align: center;
+      color: #797979cc
+    }
+
+
+  
+
+  @media(width > 700px){
+    section{
+    }
+
+    .practicasDepartamento-container{
+      display: grid;
+      grid-template-columns: 40% 50%;
+
+    }
+
+    .practicasDepartamento-container_notices{
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .practicasDepartamento-container_notices ul{
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      padding-block: 20px;
+      height: 600px;
+    }
+
+    .practicasDepartamento-container_notices a{
+      position: absolute;
+      top: 50%;
+      right: -110px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 1px solid #79797991;
+      display: grid;
+      place-content: center;
+      transition: background-color .2s;
+    }
+
+    .no-hover{
+      color: #79797991;
+      transform: translateY(15px);
+      font-size: 1em;
+      transition: scale .2s;
+    }
+
+    .hover{
+      color: #fff;
+      transform: translateY(-10px);
+      text-align: center;
+      transition: scale .2s;
+      font-size: 1.5em;
+      scale: 0;
+      
+    }
+
+    .practicasDepartamento-container_notices a:hover{
+      background-color: #7979795d;
+      border: none;
+    }
+
+    .practicasDepartamento-container_notices a:hover .no-hover{
+      scale: 0;
+    }
+
+    .practicasDepartamento-container_notices a:hover .hover{
+      scale: 1;
+    }
+
+
   }
 </style>
