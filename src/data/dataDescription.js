@@ -12,6 +12,7 @@ export const dataDescription = {
         text: "Agendar Turno",
         primaryAction: true,
         styles: false,
+        background: "white",
       },
       button02: {
         id: 2,

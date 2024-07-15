@@ -1,5 +1,6 @@
 ---
 import Back from "../ancors/back.astro";
+import MiniNavNotice from "../ancors/miniNavNotice.astro";
 interface Props {
   info: any;
 }
@@ -10,7 +11,7 @@ const SECTION_ID = "#Noticias";
 ---
 
 <section>
-  <Back sectionID={`/${SECTION_ID}`} />
+  <MiniNavNotice />
   <header>
     <span class="antetitle">{info.anteTitle}</span>
     <h1>{info.title}</h1>

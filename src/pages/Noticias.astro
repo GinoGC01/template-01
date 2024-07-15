@@ -1,27 +1,28 @@
 ---
-import Header from "../components/React/header"
-import Layout from "../layouts/Layout.astro"
-import {Search} from '../Icons/Search.jsx'
-import SectionNotices from '../components/React/SectionNotices.jsx'
+import Header from "../components/React/header";
+import Layout from "../layouts/Layout.astro";
+import { Search } from "../Icons/Search.jsx";
+import SectionNotices from "../components/React/SectionNotices.jsx";
 ---
 
 <Layout title="Noticias">
-    <Header
+  <Header
     about={"/#Sobre-nosotros"}
     contact={"/#Contacto"}
     home={"/"}
     notices={"/Noticias"}
-    lastNotices={'/#Ultimas-noticias'}
+    lastNotices={"/#Ultimas-noticias"}
     testimonios={"/#Testimonios"}
     equipo={"/#Equipo"}
     areasLaborales={"/#Areas-laborales"}
-    client:load/>
+    client:load
+  />
 
-    <SectionNotices client:load/>
+  <SectionNotices client:load />
 </Layout>
 
 <style is:global>
-:root {
+  :root {
     /* variables header principal  */
     --span-menu-hamb: rgb(255, 255, 255);
     --a-menu-hamb: rgb(255, 255, 255);
@@ -43,6 +44,9 @@ import SectionNotices from '../components/React/SectionNotices.jsx'
     --subtitlesection-desk: 2em;
     --paddingsubtilteSection: 20px 30px;
     --paddingsubtilteSection-desk: 50px;
+
+    /* animated */
+    --animate-delay: 0.3s;
   }
   * {
     margin: 0;
@@ -54,7 +58,7 @@ import SectionNotices from '../components/React/SectionNotices.jsx'
     scroll-behavior: smooth;
   }
 
-  section{
+  section {
     padding-top: 100px;
   }
 </style>

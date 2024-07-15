@@ -10,4 +10,7 @@ export default defineConfig({
   adapter: netlify({
     edgeMiddleware: true,
   }),
+  devToolbar: {
+    enabled: false,
+  },
 });

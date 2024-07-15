@@ -3,51 +3,45 @@ import { Search } from "../../Icons/Search";
 import { notices } from "../../data/notices.js";
 import { CardNotices } from "./Cards/CardNotices.jsx";
 import "./sectionNotices.css";
-export default function SectionNotices() {
-  const [noticias, setNoticias] = useState([]);
+import useFilters from "./hooks/useFilters.jsx";
+import { usePagination } from "./hooks/usePagination.jsx";
 
-  const [filters, setFilters] = useState({
-    title: "all",
-    category: "all",
-  });
+export default function SectionNotices() {
+  //noticias fetch TODO
+  const [noticias, setNoticias] = useState([]);
 
   useEffect(() => {
     setNoticias(notices);
   }, []);
 
-  const noticesFiltered = (noticiasFiltrar) => {
-    return noticiasFiltrar.filter((noticiaFiltrada) => {
-      return (
-        (filters.title === "all" ||
-          noticiaFiltrada.title.toLowerCase().includes(filters.title)) &&
-        (filters.category === "all" ||
-          noticiaFiltrada.category === filters.category)
-      );
-    });
-  };
+  const {
+    noticesFiltered,
+    handleOnChangeCategory,
+    handleOnChangeTitle,
+    filters,
+  } = useFilters({ notices: noticias });
 
-  const handleOnChangeTitle = (e) => {
-    const value = e.target.value;
-    const newFilters = { ...filters, title: value };
-    setFilters(newFilters);
-  };
+  const noticiasFiltradas = noticesFiltered();
 
-  const handleOnChangeCategory = (e) => {
-    const value = e.target.value;
-    const newFilters = { ...filters, category: value };
-    setFilters(newFilters);
-  };
+  const { items, prevPage, currentPageVisible, totalPages, nextPage } =
+    usePagination({ products: noticiasFiltradas, noticias, filters });
 
-  const noticiasFiltradas = noticesFiltered(noticias);
   return (
     <section className="section-notices">
       <header className="filters">
         <div>
-          <input type="text" onChange={handleOnChangeTitle} />
+          <h1>Noticias</h1>
+        </div>
+        <div className="search_section-notices">
+          <input
+            type="text"
+            onChange={handleOnChangeTitle}
+            placeholder="Buscar noticia"
+          />
           <Search />
         </div>
-        <div>
-          <label htmlFor="categorys">Filtrar por area: </label>
+        <div className="filters-area">
+          <label htmlFor="categorys">Area: </label>
           <select
             name="categorys"
             id="categorys"
@@ -60,20 +54,43 @@ export default function SectionNotices() {
           </select>
         </div>
       </header>
-      {noticiasFiltradas.map((notice) => {
-        return (
-          <CardNotices
-            id={notice.id}
-            title={notice.title}
-            images={notice.images}
-            category={notice.category}
-            synthesis={notice.synthesis}
-            date={notice.date}
-            url={`/notices/${notice.id}`}
-            key={notice.id}
-          />
-        );
-      })}
+      <ul className="notices-container">
+        {items.map((notice, index) => {
+          return (
+            <li key={notice.id}>
+              <CardNotices
+                id={notice.id}
+                title={notice.title}
+                images={notice.images}
+                category={notice.category}
+                synthesis={notice.synthesis}
+                date={notice.date}
+                url={`/notices/${notice.id}`}
+                index={index}
+              />
+            </li>
+          );
+        })}
+      </ul>
+      {items.length > 0 && (
+        <div className="pagination">
+          <button
+            onClick={prevPage}
+            disabled={currentPageVisible === 1}
+            className="button-page"
+          >
+            {"<"}
+          </button>
+          <span>{` ${currentPageVisible} / ${totalPages}`}</span>
+          <button
+            onClick={nextPage}
+            disabled={currentPageVisible === totalPages}
+            className="button-page"
+          >
+            {">"}
+          </button>
+        </div>
+      )}
     </section>
   );
 }

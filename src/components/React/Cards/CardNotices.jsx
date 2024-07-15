@@ -1,4 +1,5 @@
 import "./CardNotices.css";
+import "animate.css";
 export function CardNotices({
   id,
   title,
@@ -7,9 +8,13 @@ export function CardNotices({
   synthesis,
   date,
   url,
+  index,
 }) {
   return (
-    <article id={id} className="card-notices_container">
+    <article
+      id={id}
+      className={` card-notices_container animate__animated animate__fadeInLeft animate__faster animate__delay-${index}s tipo`}
+    >
       <header>
         <h4>{title}</h4>
         <span>{date}</span>
