@@ -5,10 +5,10 @@ import { Home } from "../../../Icons/Home.jsx";
 
 <ul>
   <li>
-    <a href="/"><Home /></a>
+    <a href="/" title="Home"><Home /></a>
   </li>
   <li>
-    <a href="/Noticias"><Notices /></a>
+    <a href="/Noticias" title="Sección de noticias"><Notices /></a>
   </li>
 </ul>
 <style>
@@ -33,10 +33,26 @@ import { Home } from "../../../Icons/Home.jsx";
     justify-content: center;
     color: white;
     font-size: 1.5em;
-    height: 1.7em;
-    width: 1.7em;
+    height: 1.5em;
+    width: 1.5em;
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
+  }
+
+  li {
+    transition:
+      opacity 0.2s,
+      scale ease 0.2s;
+  }
+
+  li:hover {
+    opacity: 0.8;
+    scale: 1.05;
+  }
+  @media (width > 700px) {
+    ul {
+      padding: 0 15px;
+    }
   }
 </style>

@@ -1,8 +1,8 @@
 ---
-import {notices} from '../../../data/notices.js'
+import { notices } from "../../../data/notices.js";
 import { CardAreaPractica } from "../../React/Cards/CardAreaPractica.jsx";
 import Back from "../ancors/back.astro";
-import CardNotice from '../cards/CardNotice.astro';
+import CardNotice from "../cards/CardNotice.astro";
 interface Props {
   info: any;
 }
@@ -10,9 +10,10 @@ const { info } = Astro.props;
 
 const SECTION_ID = "#Areas-laborales";
 
-
-const noticiasFiltradas = notices.filter(notice => notice.category == info.nombre)
-const shortNotices = noticiasFiltradas.slice(0, 2)
+const noticiasFiltradas = notices.filter(
+  (notice) => notice.category == info.nombre
+);
+const shortNotices = noticiasFiltradas.slice(0, 2);
 ---
 
 <section>
@@ -45,29 +46,41 @@ const shortNotices = noticiasFiltradas.slice(0, 2)
     </div>
     <div class="practicasDepartamento-container_notices">
       <h4>Noticias relacionadas</h4>
-        {noticiasFiltradas.length == 0 ?  
-        <p>No hay noticias para mostrar en este momento</p>:
-        <ul>
-          {
-            shortNotices?.map((notice) => {
-              return <CardNotice id={notice.id}
-              category={notice.category}
-              date={notice.date}
-              images={notice.images}
-              synthesis={notice.synthesis}
-              title={notice.title} />
-            })
-          }
-          {noticiasFiltradas.length > 2 && 
-          <a href="/#Noticias">
-            <span class="no-hover">ver más</span>
-            <span class="hover"> +</span>
-          </a>}
-        </ul>}
-        
+      {
+        noticiasFiltradas.length == 0 ? (
+          <>
+            <p>No hay noticias para mostrar en este momento</p>
+            <a href="/Noticias">ver noticias</a>
+          </>
+        ) : (
+          <ul>
+            {shortNotices?.map((notice) => {
+              return (
+                <li>
+                  <CardNotice
+                    id={notice.id}
+                    category={notice.category}
+                    date={notice.date}
+                    images={notice.images}
+                    synthesis={notice.synthesis}
+                    title={notice.title}
+                  />
+                </li>
+              );
+            })}
+            {noticiasFiltradas.length >= 1 && (
+              <a
+                href="/Noticias"
+                class="button-slider"
+                title="Ver todas las noticias"
+              >
+                <span> +</span>
+              </a>
+            )}
+          </ul>
+        )
+      }
     </div>
-
-
   </div>
 </section>
 
@@ -100,7 +113,8 @@ const shortNotices = noticiasFiltradas.slice(0, 2)
     font-weight: 100;
   }
 
-  .practicasDepartamento-container, .practicasDepartamento-container_list {
+  .practicasDepartamento-container,
+  .practicasDepartamento-container_list {
     padding-inline: var(--paddingsection-inline);
     display: flex;
     flex-direction: column;
@@ -119,7 +133,7 @@ const shortNotices = noticiasFiltradas.slice(0, 2)
     left: 0;
   }
 
-  .practicasDepartamento-container_list{
+  .practicasDepartamento-container_list {
     padding: 0;
   }
 
@@ -130,92 +144,99 @@ const shortNotices = noticiasFiltradas.slice(0, 2)
     padding: 0;
   }
 
-  .practicasDepartamento-container_notices{
-      padding: 0px;
+  .practicasDepartamento-container_notices {
+    padding: 0px;
+  }
+
+  .practicasDepartamento-container_notices h4 {
+    margin-block: 20px;
+  }
+
+  .button-slider {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #797979cc;
+  }
+
+  @media (width > 700px) {
+    section {
+      width: 70%;
+      margin: auto;
     }
 
-    .practicasDepartamento-container_notices h4{
-      margin-block: 20px;
+    .practicasDepartamento-container::after {
+      display: none;
     }
 
-    .practicasDepartamento-container_notices a {
-      display: block;
-      width: 100%;
+    .practicasDepartamento-container {
+      display: grid;
+      grid-template-columns: 40% 1fr;
       padding: 20px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, .2);
-      text-align: center;
-      color: #797979cc
     }
 
-
-  
-
-  @media(width > 700px){
-    section{
+    .practicasDepartamento-container_list {
+      grid-column: 1 / 2;
     }
 
-    .practicasDepartamento-container{
-      display: grid;
-      grid-template-columns: 40% 50%;
-
-    }
-
-    .practicasDepartamento-container_notices{
-      padding: 0 20px;
+    .practicasDepartamento-container_notices {
       position: relative;
+      grid-column: 2/3;
     }
 
-    .practicasDepartamento-container_notices ul{
+    .practicasDepartamento-container_notices ul {
       position: relative;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      padding-block: 20px;
-      height: 600px;
+      display: flex;
+      flex-direction: row;
+      overflow-y: hidden;
+      overflow-x: scroll;
+      padding: 20px;
+      height: 630px;
     }
 
-    .practicasDepartamento-container_notices a{
+    .practicasDepartamento-container_notices li {
+      flex: 1;
+    }
+
+    .practicasDepartamento-container_notices h4 {
+      margin-block: 0px;
+    }
+
+    .button-slider {
       position: absolute;
       top: 50%;
-      right: -110px;
+      right: -80px;
       width: 80px;
       height: 80px;
       border-radius: 50%;
       border: 1px solid #79797991;
       display: grid;
       place-content: center;
-      transition: background-color .2s;
+      box-shadow: none;
+      transition: background-color 0.2s;
     }
 
-    .no-hover{
+    .no-hover {
       color: #79797991;
       transform: translateY(15px);
       font-size: 1em;
-      transition: scale .2s;
+      transition: scale 0.2s;
     }
 
-    .hover{
+    .hover {
       color: #fff;
       transform: translateY(-10px);
       text-align: center;
-      transition: scale .2s;
+      transition: scale 0.2s;
       font-size: 1.5em;
       scale: 0;
-      
     }
 
-    .practicasDepartamento-container_notices a:hover{
+    .button-slider:hover {
       background-color: #7979795d;
       border: none;
     }
-
-    .practicasDepartamento-container_notices a:hover .no-hover{
-      scale: 0;
-    }
-
-    .practicasDepartamento-container_notices a:hover .hover{
-      scale: 1;
-    }
-
-
   }
 </style>

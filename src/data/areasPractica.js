@@ -2,7 +2,7 @@ export const areasPracticas = [
   {
     id: "1",
     nombre: "Derecho Civíl",
-    imagen: "../../public/public/images/temp/area-civil.webp",
+    imagen: "../images/temp/area-civil.webp",
     area: "Civil",
     titulo: "Lorem ipsum dolor sit amet",
     subtitulo: "lorem ipsum dolor sit amet, adipisicing elit.",
@@ -83,7 +83,7 @@ export const areasPracticas = [
   {
     id: "2",
     area: "Penal",
-    imagen: "../../../images/temp/area-civil.webp",
+    imagen: "../images/temp/area-civil.webp",
     nombre: "Derecho Penal",
     titulo: "Lorem ipsum dolor sit amet",
     subtitulo: "lorem ipsum dolor sit amet, adipisicing elit.",
@@ -143,7 +143,7 @@ export const areasPracticas = [
   {
     id: "3",
     area: "Laboral",
-    imagen: "../../../images/temp/area-laboral.webp",
+    imagen: "../images/temp/area-laboral.webp",
     nombre: "Derecho Laboral",
     titulo: "Lorem ipsum dolor sit amet",
     subtitulo: "lorem ipsum dolor sit amet, adipisicing elit.",

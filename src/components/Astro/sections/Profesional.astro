@@ -43,10 +43,52 @@ const RRSS_ICONS = {
 const SECTION_ID = "#Equipo";
 ---
 
-<section>
+<section class="perfil-secction">
   <Back sectionID={`/${SECTION_ID}`} />
-
   <figure>
+    <div class="data-desktop">
+      <h1>{nombre}</h1>
+      <h2>
+        <ul>
+          {
+            especialidades?.map((especialidad: string) => {
+              return <li>{especialidad}</li>;
+            })
+          }
+        </ul>
+      </h2>
+      <strong>{posicion}</strong>
+      <span>
+        Servicios Jurídicos en
+        <b>
+          {jurisdiccion[1]}
+        </b>
+      </span>
+    </div>
+    <section class="contact-desktop">
+      <ul>
+        <li><span><PhoneIcon /></span> <p>{contactos.contactPhone}</p></li>
+        <li>
+          <a href={`mailto:${contactos.email}`}>
+            <span> <EmailIcon /> </span>
+            <p>{contactos.email}</p>
+          </a>
+        </li>
+        {
+          contactos.rrss?.map(({ url, username, redSocial }) => {
+            const iconName = redSocial === "LinkedIn" ? "LinkedIn" : redSocial;
+            const Icon = RRSS_ICONS[iconName];
+            return (
+              <li>
+                <a href={url}>
+                  <span>{Icon && <Icon />}</span> <p>{username}</p>
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
     <img
       src={imagen[0]}
       alt={`imágen de perfil del abogado ${nombre}`}
@@ -54,9 +96,9 @@ const SECTION_ID = "#Equipo";
       loading="lazy"
     />
   </figure>
-  <div class="content">
+  <section class="content">
     <header>
-      <div class="data">
+      <div class="data-movil">
         <h1>{nombre}</h1>
         <h2>
           <ul>
@@ -75,7 +117,7 @@ const SECTION_ID = "#Equipo";
           </b>
         </span>
       </div>
-      <section>
+      <section class="contact-movil">
         <header>
           <h3>Contacto</h3>
         </header>
@@ -103,7 +145,7 @@ const SECTION_ID = "#Equipo";
         </ul>
       </section>
     </header>
-    <article>
+    <div class="data-content">
       <section>
         <header>
           <h4><Arrow /> Biografía</h4>
@@ -155,8 +197,8 @@ const SECTION_ID = "#Equipo";
           }
         </ul>
       </section>
-    </article>
-  </div>
+    </div>
+  </section>
 </section>
 
 <style>
@@ -217,6 +259,7 @@ const SECTION_ID = "#Equipo";
     object-fit: cover;
     object-position: 0 -20%;
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.4));
+    /* mask-image: linear-gradient(black 90%, transparent); */
   }
 
   .content {
@@ -236,7 +279,7 @@ const SECTION_ID = "#Equipo";
     padding-inline: var(--paddingsection-inline);
   }
 
-  .data {
+  .data-movil {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -244,25 +287,33 @@ const SECTION_ID = "#Equipo";
     border-bottom: 1px solid #00000017;
   }
 
-  .data h2 {
+  .data-desktop {
+    display: none;
+  }
+
+  .data-movil h2 {
     font-weight: 200;
     font-size: 1.2em;
   }
 
-  header > section {
+  .contact-movil {
     border-bottom: 1px solid #00000017;
   }
 
-  header > section > header {
+  .contact-movil > header {
     padding-block: 5px;
   }
 
-  header > section ul {
+  .contact-movil ul {
     padding-block: 5px;
   }
 
-  header > section li,
-  header > section a {
+  .contact-desktop {
+    display: none;
+  }
+
+  .contact-movil li,
+  .contact-movil a {
     display: flex;
     align-items: center;
     gap: 0.3em;
@@ -270,7 +321,7 @@ const SECTION_ID = "#Equipo";
     margin-block: 2px;
   }
 
-  article {
+  .data-content {
     padding-block: 10px;
     padding-inline: var(--paddingsection-inline);
     border-radius: 20px 20px 0 0;
@@ -278,7 +329,7 @@ const SECTION_ID = "#Equipo";
     color: white;
   }
 
-  article > section p,
+  .data-content > section p,
   .ul-carrera,
   .ul-objetivos,
   .ul-valores {
@@ -291,7 +342,7 @@ const SECTION_ID = "#Equipo";
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   }
 
-  article > section h4 {
+  .data-content > section h4 {
     display: flex;
     align-items: center;
     gap: 0.2em;
@@ -318,5 +369,128 @@ const SECTION_ID = "#Equipo";
 
   .uni {
     font-weight: 200;
+  }
+
+  @media (width > 700px) {
+    .perfil-secction {
+      display: flex;
+      align-items: center;
+      width: 80%;
+      margin: auto;
+      gap: 2em;
+      padding-top: 100px;
+      padding-bottom: 30px;
+    }
+
+    figure {
+      width: 60%;
+      height: 60vh;
+      border-radius: 40px;
+      background-color: transparent;
+      transform: translateY(10%);
+    }
+
+    figure::after {
+      border-radius: 40px;
+      top: 0px;
+      background: linear-gradient(
+        0deg,
+        rgba(1, 4, 190, 0.603) 0%,
+        transparent 50%,
+        transparent 100%
+      );
+    }
+
+    img {
+      object-position: -10px 40px;
+      border-radius: 40px;
+    }
+
+    .data-movil {
+      display: none;
+    }
+
+    .data-desktop {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 0.5em;
+      border-bottom: 1px solid #00000017;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: -60px;
+    }
+
+    header > section ul {
+      display: flex;
+      gap: 1em;
+      align-items: center;
+    }
+
+    .contact-movil {
+      display: none;
+    }
+
+    .contact-desktop {
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 50px;
+      width: 40%;
+      z-index: 1000;
+    }
+
+    .contact-desktop ul {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      gap: 0.5em;
+    }
+
+    .contact-desktop ul li {
+      background-color: #00000021;
+      border-radius: 10px 0 0 10px;
+      cursor: pointer;
+      padding: 2px 5px;
+    }
+
+    .contact-desktop ul li,
+    .contact-desktop ul li a {
+      display: flex;
+      align-items: center;
+      color: #000000;
+      gap: 0.2em;
+    }
+
+    .contact-desktop a > span,
+    .contact-desktop ul li span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.5em;
+      height: 1.5em;
+      transform: translateY(1px);
+    }
+
+    .contact-desktop p {
+      width: 0;
+      overflow: hidden;
+      transition: width 0.2s;
+    }
+
+    .contact-desktop > ul > li:nth-child(2):hover p {
+      width: 180px;
+    }
+
+    .contact-desktop > ul > li:nth-child(1):hover p,
+    .contact-desktop > ul > li:nth-child(3):hover p,
+    .contact-desktop > ul > li:nth-child(4):hover p {
+      width: 100px;
+    }
+
+    .data-content {
+      border-radius: 20px;
+    }
   }
 </style>

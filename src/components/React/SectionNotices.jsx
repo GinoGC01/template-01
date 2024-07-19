@@ -9,6 +9,7 @@ import { usePagination } from "./hooks/usePagination.jsx";
 export default function SectionNotices() {
   //noticias fetch TODO
   const [noticias, setNoticias] = useState([]);
+  const itemsForPage = 4;
 
   useEffect(() => {
     setNoticias(notices);
@@ -24,10 +25,15 @@ export default function SectionNotices() {
   const noticiasFiltradas = noticesFiltered();
 
   const { items, prevPage, currentPageVisible, totalPages, nextPage } =
-    usePagination({ products: noticiasFiltradas, noticias, filters });
+    usePagination({
+      products: noticiasFiltradas,
+      noticias,
+      filters,
+      itemsForPage,
+    });
 
   return (
-    <section className="section-notices">
+    <section className="section-notices" id="Noticias">
       <header className="filters">
         <div>
           <h1>Noticias</h1>
@@ -74,21 +80,25 @@ export default function SectionNotices() {
       </ul>
       {items.length > 0 && (
         <div className="pagination">
-          <button
+          <a
+            href="#Noticias"
+            title="anterior"
             onClick={prevPage}
             disabled={currentPageVisible === 1}
             className="button-page"
           >
             {"<"}
-          </button>
+          </a>
           <span>{` ${currentPageVisible} / ${totalPages}`}</span>
-          <button
+          <a
+            href="#Noticias"
+            title="siguiente"
             onClick={nextPage}
             disabled={currentPageVisible === totalPages}
             className="button-page"
           >
             {">"}
-          </button>
+          </a>
         </div>
       )}
     </section>

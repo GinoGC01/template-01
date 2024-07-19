@@ -17,7 +17,12 @@
   border: 1px solid grey;
 }
 
-.swiper-slide .header-slider {
+.swiper-slide {
+  display: flex;
+  grid-template-rows: 7em 1fr;
+}
+
+.mySwiper header {
   display: flex;
   grid-template-rows: 7em 1fr;
 }

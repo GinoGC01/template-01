@@ -2,7 +2,7 @@ export const team = [
   {
     id: "Nombre-Apellido-1",
     nombre: "Nombre Apellido 1",
-    especialidades: ["Abogado Penalista"],
+    especialidades: ["Derecho Penal"],
     posicion: "Socio",
     jurisdiccion: ["Republica Argentina", "Arg"],
     carreras: [
@@ -43,8 +43,8 @@ export const team = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem facere similique aspernatur in fuga officia dignissimos enim ut amet",
     contact: {
       rrss: [
-        { redSocial: "Facebook", url: "url", username: "Username" },
-        { redSocial: "LinkedIn", url: "url", username: "Username" },
+        { redSocial: "Facebook", url: "#", username: "Username" },
+        { redSocial: "LinkedIn", url: "#", username: "Username" },
       ],
       contactPhone: "1130269814",
       email: "email@example.com",
@@ -53,7 +53,7 @@ export const team = [
   {
     id: "Nombre-Apellido-2",
     nombre: "Nombre Apellido 2",
-    especialidades: ["Especialidad"],
+    especialidades: ["Derecho Laboral"],
     posicion: "Socio",
     jurisdiccion: ["Republica Argentina", "Arg"],
     carreras: [
@@ -87,8 +87,8 @@ export const team = [
 
     contact: {
       rrss: [
-        { redSocial: "Facebook", url: "url", username: "Username" },
-        { redSocial: "LinkedIn", url: "url", username: "Username" },
+        { redSocial: "Facebook", url: "#", username: "Username" },
+        { redSocial: "LinkedIn", url: "#", username: "Username" },
       ],
       contactPhone: "1130269814",
       email: "email@example.com",
@@ -97,7 +97,7 @@ export const team = [
   {
     id: "Nombre-Apellido-3",
     nombre: "Nombre Apellido 3",
-    especialidades: ["Abogado Penalista"],
+    especialidades: ["Derecho Civíl"],
     posicion: "Socio",
     jurisdiccion: ["Republica Argentina", "Arg"],
     carreras: [
@@ -138,8 +138,8 @@ export const team = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem facere similique aspernatur in fuga officia dignissimos enim ut amet",
     contact: {
       rrss: [
-        { redSocial: "Facebook", url: "url", username: "Username" },
-        { redSocial: "LinkedIn", url: "url", username: "Username" },
+        { redSocial: "Facebook", url: "#", username: "Username" },
+        { redSocial: "LinkedIn", url: "#", username: "Username" },
       ],
       contactPhone: "1130269814",
       email: "email@example.com",

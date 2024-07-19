@@ -12,15 +12,24 @@
   background-color: transparent;
   border: none;
   font-size: 1em;
+  cursor: pointer;
 }
 
 .cardAreaPractica-container > button > span {
+  font-weight: 100;
+
   display: grid;
   place-content: center;
   height: 20px;
   width: 20px;
   border-radius: 50%;
   border: 1px solid grey;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.cardAreaPractica-container > button:hover > span {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
 }
 
 .practicasDepartamento-container {
@@ -67,7 +76,14 @@
   padding: 5px 10px;
   border: 1px solid grey;
   border-radius: 6px;
-  transition: background-color 0.2s, color 0.2s;
+  transition: background-color 0.2s, color 0.2s, opacity 0.2s;
+  cursor: pointer;
+}
+
+.cardPDT-button:hover,
+.CardPDTRequisitos-button:hover {
+  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .cardPDT-open,

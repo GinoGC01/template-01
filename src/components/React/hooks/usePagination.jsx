@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-export function usePagination({ products, noticias, filters }) {
-  const ITEM_FOR_PAGE = 5;
+export function usePagination({ products, noticias, filters, itemsForPage }) {
+  const ITEM_FOR_PAGE = itemsForPage;
   const [items, setItems] = useState([]);
   const [currenPage, setCurrentPage] = useState(0);
 

@@ -1,13 +1,17 @@
 ---
+import { notices } from "../../../data/notices.js";
 import Back from "../ancors/back.astro";
 import MiniNavNotice from "../ancors/miniNavNotice.astro";
+import CardNotice from "../cards/CardNotice.astro";
 interface Props {
   info: any;
 }
 
 const { info } = Astro.props;
-
-const SECTION_ID = "#Noticias";
+const filteredNotices = notices.filter(
+  (noti) => noti.id != info.id && noti.category == info.category
+);
+const slicedNotices = filteredNotices.slice(0, 3);
 ---
 
 <section>
@@ -33,6 +37,29 @@ const SECTION_ID = "#Noticias";
       })
     }
   </article>
+  {
+    slicedNotices.length > 0 && (
+      <aside>
+        <header>
+          <h3>Noticias relacionadas:</h3>
+        </header>
+        <ul>
+          {slicedNotices.map((notice) => {
+            return (
+              <CardNotice
+                id={notice.id}
+                category={notice.category}
+                date={notice.date}
+                images={notice.images}
+                synthesis={notice.synthesis}
+                title={notice.title}
+              />
+            );
+          })}
+        </ul>
+      </aside>
+    )
+  }
   <footer class="footer-article_notice">
     <h3>Palabras claves</h3>
     <ul>
@@ -55,7 +82,7 @@ const SECTION_ID = "#Noticias";
     position: relative;
   }
 
-  header {
+  section > header {
     position: absolute;
     z-index: 1000;
     width: 100%;
@@ -119,6 +146,7 @@ const SECTION_ID = "#Noticias";
     border-top: 1px solid black;
     padding: 10px 15px;
     background-color: var(--firstvalue);
+    display: none;
   }
 
   .footer-article_notice h3 {
@@ -137,5 +165,62 @@ const SECTION_ID = "#Noticias";
   .footer-article_notice li {
     list-style: disc;
     color: white;
+  }
+
+  aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 20px 10px;
+  }
+
+  aside ul {
+    display: flex;
+    flex-direction: column;
+    line-gap-override: 1em;
+  }
+  @media (width > 700px) {
+    section {
+      width: 60%;
+      margin: auto;
+    }
+
+    section > header {
+      top: 60vh;
+      padding: 20px 50px;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    .date {
+      font-size: 0.8em;
+      opacity: 0.7;
+    }
+
+    article > span {
+      display: block;
+      padding: 10px 50px;
+    }
+
+    figure {
+      height: 60vh;
+    }
+
+    p {
+      padding: 20px 50px;
+      font-size: 1.2em;
+    }
+
+    aside {
+      width: 100%;
+    }
+
+    aside ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(430px, 1fr));
+      gap: 1em;
+    }
   }
 </style>

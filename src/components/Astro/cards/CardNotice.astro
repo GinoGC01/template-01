@@ -93,7 +93,14 @@ const { title, category, synthesis, images, date, id } = Astro.props;
   @media (width >= 700px) {
     article div figure {
       height: 25em;
-      width: 100%;
+    }
+
+    article {
+      transition: scale 0.2s;
+    }
+
+    article:hover {
+      scale: 1.02;
     }
   }
 </style>

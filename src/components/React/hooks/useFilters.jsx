@@ -2,15 +2,16 @@ import { useState } from "react";
 
 export default function useFilters({ notices }) {
   const [filters, setFilters] = useState({
-    title: "all",
+    content: "all",
     category: "all",
   });
 
   const noticesFiltered = () => {
     return notices.filter((noticiaFiltrada) => {
       return (
-        (filters.title === "all" ||
-          noticiaFiltrada.title.toLowerCase().includes(filters.title)) &&
+        (filters.content === "all" ||
+          noticiaFiltrada.title.toLowerCase().includes(filters.content) ||
+          noticiaFiltrada.category.toLowerCase().includes(filters.content)) &&
         (filters.category === "all" ||
           noticiaFiltrada.category === filters.category)
       );
@@ -19,7 +20,7 @@ export default function useFilters({ notices }) {
 
   const handleOnChangeTitle = (e) => {
     const value = e.target.value;
-    const newFilters = { ...filters, title: value };
+    const newFilters = { ...filters, content: value };
     setFilters(newFilters);
   };
 

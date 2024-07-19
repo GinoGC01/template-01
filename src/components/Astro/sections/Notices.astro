@@ -3,7 +3,7 @@ import { notices } from "../../../data/notices.js";
 import CardNotice from "../cards/CardNotice.astro";
 import CTA01 from "../cards/CTA01.astro";
 const newNotices = notices.reverse();
-const shortNotices = newNotices.slice(0, 3)
+const shortNotices = newNotices.slice(0, 3);
 ---
 
 <section id="Ultimas-noticias">
@@ -27,7 +27,13 @@ const shortNotices = newNotices.slice(0, 3)
     }
 
     {
-      shortNotices.length % 2 != 0 && <CTA01 message="Ver más" url="/Noticias" image="../../../../../images/temp/notices/noticia-01.jpeg"/>
+      shortNotices.length % 2 != 0 && (
+        <CTA01
+          message="Ver más"
+          url="/Noticias"
+          image="../../../../../images/temp/notices/noticia-01.jpeg"
+        />
+      )
     }
   </div>
 </section>

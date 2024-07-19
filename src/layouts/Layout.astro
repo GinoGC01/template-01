@@ -5,6 +5,9 @@ interface Props {
 
 const { title } = Astro.props;
 import { ViewTransitions } from "astro:transitions";
+import Header from "../components/React/header";
+import Footer from "../components/Astro/sections/Footer.astro";
+import { src } from "../data/mapaFooter";
 ---
 
 <!doctype html>
@@ -19,6 +22,24 @@ import { ViewTransitions } from "astro:transitions";
     <title>{title}</title>
   </head>
   <body>
+    <Header
+      about={"/#Sobre-nosotros"}
+      contact={"/#Contacto"}
+      home={"/"}
+      notices={"/Noticias"}
+      lastNotices={"/#Ultimas-noticias"}
+      testimonios={"/#Testimonios"}
+      equipo={"/#Equipo"}
+      areasLaborales={"/#Areas-laborales"}
+      client:load
+    />
     <slot />
+    <Footer srcMaps={src} />
+    <style>
+      :root {
+        /* animated */
+        --animate-delay: 0.1s;
+      }
+    </style>
   </body>
 </html>

@@ -1,9 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Footer from "../../components/Astro/sections/Footer.astro";
-import Header from "../../components/React/header";
 import "animate.css";
-import { src } from "../../data/mapaFooter.js";
 
 import { team } from "../../data/team.js";
 import Profesional from "../../components/Astro/sections/Profesional.astro";
@@ -25,17 +22,6 @@ const {
 ---
 
 <Layout title={nombre}>
-  <Header
-    areasLaborales={"/#Areas-laborales"}
-    about={"/#Sobre-nosotros"}
-    contact={"/#Contacto"}
-    home={"/"}
-    notices={"/#Noticias"}
-    testimonios={"/#Testimonio"}
-    equipo={"/#Equipo"}
-    client:load
-  />
-  
   <Profesional
     id={id}
     posicion={posicion}
@@ -49,7 +35,6 @@ const {
     objetivos={objetivos}
     valores={valores}
   />
-  <Footer srcMaps={src} />
 </Layout>
 
 <style is:global>

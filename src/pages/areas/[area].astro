@@ -1,29 +1,14 @@
 ---
 import { areasPracticas } from "../../data/areasPractica";
 import Layout from "../../layouts/Layout.astro";
-import Footer from "../../components/Astro/sections/Footer.astro";
-import { src } from "../../data/mapaFooter.js";
 import AreaLaboral from "../../components/Astro/sections/AreaLaboral.astro";
-import Header from "../../components/React/header.jsx"
 
 const { area } = Astro.params;
 const info = areasPracticas.find((areaPractica) => areaPractica.area == area);
 ---
 
 <Layout title={info.nombre}>
-  <Header
-    areasLaborales={"/#Areas-laborales"}
-    about={"/#Sobre-nosotros"}
-    contact={"/#Contacto"}
-    home={"/"}
-    notices={"/Notices"}
-    lastNotices={'/#Ultimas-noticias'}
-    testimonios={"/#Testimonio"}
-    equipo={"/#Equipo"}
-    client:load
-  />
   <AreaLaboral info={info} />
-  <Footer srcMaps={src} />
 </Layout>
 
 <style is:global>

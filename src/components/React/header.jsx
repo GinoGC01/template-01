@@ -6,10 +6,10 @@ export default function Header({
   about,
   contact,
   notices,
-  lastNotices,
+  lastNotices, // eliminar
   testimonios,
   equipo,
-  areasLaborales,
+  areasLaborales, // eliminar
 }) {
   const [on, setOn] = useState(false);
   const [scroll, setScroll] = useState(false);
@@ -84,16 +84,10 @@ export default function Header({
             <a href={about}>Sobre Nosotros</a>
           </li>
           <li className="action">
-            <a href={areasLaborales}>Areas Laborales</a>
-          </li>
-          <li className="action">
-            <a href={lastNotices}>Ultimas Noticias</a>
-          </li>
-          <li className="action">
             <a href={notices}>Noticias</a>
           </li>
           <li className="action">
-            <a href={equipo}>Nuestro Equipo</a>
+            <a href={equipo}>Equipo</a>
           </li>
           <li className="action">
             <a href={testimonios}>Testimonios</a>
