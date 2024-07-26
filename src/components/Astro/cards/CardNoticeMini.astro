@@ -1,0 +1,107 @@
+---
+import CallToActions from "../ancors/callToActions.astro";
+interface Props {
+  id: string;
+  title: string;
+  category: string;
+  synthesis: string;
+  images: any;
+  date: string;
+}
+
+const { title, category, synthesis, images, date, id } = Astro.props;
+---
+
+<a id={id} href={`/notices/${id}`}>
+    <header>
+    <span class="date">{date}</span>
+      <h4>{title}</h4>
+      <span>TEMA | <b>{category}</b></span>
+    </header>
+    <figure>
+        <img
+          src={images[0]}
+          alt=`imágen sobre ${title}`
+          transition:name={`image-${images[0]}`}
+          loading="lazy"
+        />
+      </figure>
+      <p>{synthesis}</p>
+      <!-- <div class="button-cta">
+        <CallToActions
+          blank={false}
+          link={`/notices/${id}`}
+          text="Ver mas"
+          styles={true}
+          color="#fff"
+          background="rgba(0, 0, 0, 0.5)"
+        />
+      </div> -->
+  </a>
+
+  <style>
+    a{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        padding: 10px 20px;
+        height: 160px;
+        border-radius: 20px;
+        transition: scale .2s, box-shadow .2s;
+    }
+
+    a::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1100;
+        border-radius: 20px;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, #0000009a 0%, var(--secondvalue) 100%);
+    }
+
+    a:hover{
+        scale: 1.05;
+        box-shadow: 0 0 15px rgba(0, 0, 0, .5);
+    }
+
+    a figure{
+        position: absolute;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        height: 160px;
+        width: 100%;
+        border-radius: 20px;
+
+    }
+
+    a figure img{
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+
+    header, p{
+        position: relative;
+        z-index: 1500;
+        color: white;
+    }
+
+    header{
+        display: flex;
+        flex-direction: column;
+        gap:.5em;
+    }
+    
+    .date{
+        opacity: .5;
+        font-size: .8em;
+    }
+
+  </style>

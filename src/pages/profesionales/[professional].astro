@@ -19,6 +19,9 @@ const {
   contact,
   id,
 } = team.find((perfil) => perfil.nombre == professional);
+
+
+
 ---
 
 <Layout title={nombre}>
@@ -35,6 +38,7 @@ const {
     objetivos={objetivos}
     valores={valores}
   />
+  
 </Layout>
 
 <style is:global>
@@ -70,7 +74,6 @@ const {
     --animate-delay-10-10s: 0.45s;
     --animate-delay-11-10s: 0.5s;
   }
-
   * {
     margin: 0;
     padding: 0;
@@ -80,4 +83,6 @@ const {
     text-decoration: none;
     scroll-behavior: smooth;
   }
+
+ 
 </style>

@@ -67,12 +67,12 @@ export default function SectionNotices() {
               <CardNotices
                 id={notice.id}
                 title={notice.title}
-                images={notice.images}
                 category={notice.category}
+                images={notice.images}
                 synthesis={notice.synthesis}
                 date={notice.date}
-                url={`/notices/${notice.id}`}
                 index={index}
+                url={`/notices/${notice.id}`}
               />
             </li>
           );

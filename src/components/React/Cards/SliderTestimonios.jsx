@@ -1,7 +1,5 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import { User } from "../../../Icons/User";
-import { StarRating } from "../StarRating";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -10,6 +8,7 @@ import "./sliderTestimonios.css";
 
 // import required modules
 import { Autoplay, Navigation } from "swiper/modules";
+import { CardTestimonios } from "./CardTestimonios";
 
 export default function TestimoniosSlider({ testimonios }) {
   return (
@@ -30,29 +29,13 @@ export default function TestimoniosSlider({ testimonios }) {
           ({ id, nombre, fecha, testimonio, img, puntuacion }) => {
             return (
               <SwiperSlide key={id}>
-                <header className="header-slider">
-                  <figure>
-                    {img ? (
-                      <img
-                        src={img}
-                        alt={`imagen de perfil de ${nombre}`}
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div className="user">
-                        <User />
-                      </div>
-                    )}
-                  </figure>
-                </header>
-                <div className="data">
-                  <div className="header-data">
-                    <span className="nombre">{nombre}</span>
-                    <span className="fecha">{fecha}</span>
-                  </div>
-                  <p>{testimonio}</p>
-                  <StarRating rating={puntuacion} />
-                </div>
+                <CardTestimonios
+                  fecha={fecha}
+                  img={img}
+                  nombre={nombre}
+                  testimonio={testimonio}
+                  puntuacion={puntuacion}
+                />
               </SwiperSlide>
             );
           }

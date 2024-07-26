@@ -1,0 +1,60 @@
+---
+import {notices} from '../../../data/notices.js'
+import { Search } from '../../../Icons/Search';
+import CardNotice from '../cards/CardNotice.astro';
+---
+
+<section class="section-notices" id="Noticias">
+    <header class="filters">
+      <div>
+        <h1>Noticias</h1>
+      </div>
+      <div class="search_section-notices">
+        <input
+          type="text"
+          placeholder="Buscar noticia"
+          id="search-input-filter"
+        />
+        <Search />
+      </div>
+    </header>
+    <ul class="notices-container">
+      {notices.map((notice, index) => {
+        return (
+          <li>
+            <CardNotice
+              id={notice.id}
+              title={notice.title} 
+              category={notice.category}
+              images={notice.images}
+              synthesis={notice.synthesis}
+              date={notice.date}
+            />
+          </li>
+        );
+      })}
+    </ul>
+    <!-- {notices.length > 0 && (
+      <div class="pagination">
+        <a
+          href="#Noticias"
+          title="anterior"
+          onClick={prevPage}
+          disabled={currentPageVisible === 1}
+          class="button-page"
+        >
+          {"<"}
+        </a>
+        <span>{` ${currentPageVisible} / ${totalPages}`}</span>
+        <a
+          href="#Noticias"
+          title="siguiente"
+          onClick={nextPage}
+          disabled={currentPageVisible === totalPages}
+          class="button-page"
+        >
+          {">"}
+        </a>
+      </div>
+    )} -->
+  </section>

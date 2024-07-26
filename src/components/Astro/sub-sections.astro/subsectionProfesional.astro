@@ -1,0 +1,77 @@
+---
+import { team } from "../../../data/team.js"
+const {professional} = Astro.props
+const allteam = team.filter(perfil => perfil.nombre != professional)
+console.log(allteam)
+---
+
+<section class="profesional_subsection">
+    {allteam?.map(({nombre, images, especialidades}) => {
+      return (
+        <a href={`/profesionales/${nombre}`} class="perfil-profesional_subsection">
+          <figure>
+            <img src={images[0]}  
+                 alt={`imágen de perfil del abogado ${nombre}`}
+                 transition:name={`image-${nombre}`}
+                 loading="lazy"/>
+          </figure>
+          <span class="nombre">{nombre}</span>
+          <span class="especialidad">{especialidades}</span>
+        </a>
+      )
+    })}
+  </section>
+
+  <style>
+     .profesional_subsection{
+    width: 100%;
+    display: flex;
+    gap: 1em;
+    padding: 10px 0;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .perfil-profesional_subsection{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 10em;
+    height: 15em;
+    background-color: rgb(1, 0, 58);
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .5);
+    color: white;
+  }
+
+  .perfil-profesional_subsection figure{
+    width: 100%;
+    height:70%;
+  }
+
+  .perfil-profesional_subsection img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 0 0;
+    mask-image: linear-gradient( black 80%, transparent);
+  }
+
+  .perfil-profesional_subsection span{
+    position: absolute;
+  }
+
+  .nombre{
+    top: 15px;
+  }
+  
+  .especialidad{
+    bottom: 10px;
+    font-weight: 300;
+    opacity: .8;
+  }
+  </style>

@@ -70,14 +70,25 @@
   gap: 0.5em;
 }
 
-.header-principal_nav a {
+.action a {
   display: block;
   padding-bottom: 5px;
   border-bottom: 1px solid white;
 
   color: white;
 }
-
+.contact a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5em;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  border: 1px solid white;
+  margin-top: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
 /* menu hamburguesa */
 
 .menu-hamburguesa {
@@ -128,6 +139,7 @@
   .menu-hamburguesa {
     display: none;
   }
+
   .header-principal_nav {
     position: relative;
     left: 0;
@@ -144,19 +156,16 @@
     gap: 2em;
   }
 
-  .action > a {
+  .action  a {
     transition: opacity 0.2s, scale 0.2s;
   }
 
-  .action > a:hover {
+  .action  a:hover {
     opacity: 0.8;
     scale: 1.05;
   }
 
   .contact a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 2.5em;
     width: 7em;
     font-size: 1.1em;
@@ -164,6 +173,7 @@
     border-radius: 7px;
     gap: 0.5em;
     transition: all 0.2s;
+    margin-top: 0;
   }
 
   .contact a:hover {

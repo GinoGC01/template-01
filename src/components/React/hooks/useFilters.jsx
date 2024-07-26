@@ -20,7 +20,7 @@ export default function useFilters({ notices }) {
 
   const handleOnChangeTitle = (e) => {
     const value = e.target.value;
-    const newFilters = { ...filters, content: value };
+    const newFilters = { ...filters, content: value.toLowerCase() };
     setFilters(newFilters);
   };
 
