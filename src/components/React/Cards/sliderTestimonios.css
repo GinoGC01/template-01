@@ -103,3 +103,14 @@
   width: 100%;
 }
 
+@media (width > 700px){
+  .card-container figure{
+    margin: 10px auto;
+    scale: 1.2;
+  }
+
+  .card-container{
+    gap: 0em;
+  }
+}
+

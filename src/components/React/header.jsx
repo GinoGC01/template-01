@@ -46,7 +46,7 @@ export default function Header({
         onClick={on ? handleNav : undefined}
       ></span>
       <a href="/" className="header-principal_logo">
-        <img src="../../../../images/temp/logo-temp-01.svg" alt="logo-temp" />
+        <img src="../images/temp/logo-temp-01.svg" alt="logo-temp" />
         <div className="">
           <strong>Estudio Jurídico</strong>
           <p>Nombre estudio</p>

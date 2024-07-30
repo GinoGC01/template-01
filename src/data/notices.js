@@ -6,7 +6,7 @@ export const notices = [
     editor: "Nombre Apellido 1",
     subTitle: "LoremLorem, ipsum dolor sit amet consectetur",
     date: "07/06/2024",
-    category: "Derecho Laboral",
+    category: "Derecho Penal",
     synthesis: "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
     body: [
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae minima exercitationem mollitia quia esse culpa, quidem odio? Provident, corporis autem facere natus voluptas dolorem, error molestiae delectus temporibus asperiores possimus.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae minima exercitationem mollitia quia esse culpa, quidem odio? Provident, corporis autem facere natus voluptas dolorem, error molestiae delectus temporibus asperiores possimus.",
@@ -25,7 +25,7 @@ export const notices = [
     editor: "Nombre Apellido 1",
     subTitle: "LoremLorem, ipsum dolor sit amet consectetur",
     date: "07/06/2024",
-    category: "Derecho Laboral",
+    category: "Derecho Penal",
     synthesis: "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
     body: [
       "LoremLorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae minima exercitationem mollitia quia esse culpa, quidem odio? Provident, corporis autem facere natus voluptas dolorem, error molestiae delectus temporibus asperiores possimus.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae minima exercitationem mollitia quia esse culpa, quidem odio? Provident, corporis autem facere natus voluptas dolorem, error molestiae delectus temporibus asperiores possimus.",
@@ -44,7 +44,7 @@ export const notices = [
     editor: "Nombre Apellido 2",
     subTitle: "LoremLorem, ipsum dolor sit amet consectetur",
     date: "07/06/2024",
-    category: "Derecho Civíl",
+    category: "Derecho Laboral",
     synthesis: "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
     body: [
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae minima exercitationem mollitia quia esse culpa, quidem odio? Provident, corporis autem facere natus voluptas dolorem, error molestiae delectus temporibus asperiores possimus.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae minima exercitationem mollitia quia esse culpa, quidem odio? Provident, corporis autem facere natus voluptas dolorem, error molestiae delectus temporibus asperiores possimus.",
@@ -82,7 +82,7 @@ export const notices = [
     editor: "Nombre Apellido 2",
     subTitle: "LoremLorem, ipsum dolor sit amet consectetur",
     date: "07/06/2024",
-    category: "Derecho Penal",
+    category: "Derecho Laboral",
     synthesis: "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
     body: [
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae minima exercitationem mollitia quia esse culpa, quidem odio? Provident, corporis autem facere natus voluptas dolorem, error molestiae delectus temporibus asperiores possimus.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae minima exercitationem mollitia quia esse culpa, quidem odio? Provident, corporis autem facere natus voluptas dolorem, error molestiae delectus temporibus asperiores possimus.",
@@ -101,7 +101,7 @@ export const notices = [
     editor: "Nombre Apellido 3",
     subTitle: "LoremLorem, ipsum dolor sit amet consectetur",
     date: "07/06/2024",
-    category: "Derecho Penal",
+    category: "Derecho Civíl",
     synthesis: "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
     body: [
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae minima exercitationem mollitia quia esse culpa, quidem odio? Provident, corporis autem facere natus voluptas dolorem, error molestiae delectus temporibus asperiores possimus.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae minima exercitationem mollitia quia esse culpa, quidem odio? Provident, corporis autem facere natus voluptas dolorem, error molestiae delectus temporibus asperiores possimus.",

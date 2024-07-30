@@ -46,7 +46,7 @@ export default function SectionNotices() {
           />
           <Search />
         </div>
-        <div className="filters-area">
+        {/* <div className="filters-area">
           <label htmlFor="categorys">Area: </label>
           <select
             name="categorys"
@@ -58,7 +58,7 @@ export default function SectionNotices() {
             <option value="Derecho Penal">Derecho Penal</option>
             <option value="Derecho Civil">Derecho Civíl</option>
           </select>
-        </div>
+        </div> */}
       </header>
       <ul className="notices-container">
         {items.map((notice, index) => {

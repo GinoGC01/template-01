@@ -542,6 +542,27 @@ const noticesFiltered = notices.filter(notice => notice.editor == nombre)
 
     .data-content {
       border-radius: 20px;
+      max-height: 60vh;
+      overflow-y: scroll;
+    }
+
+    .data-content::-webkit-scrollbar {
+    width: 5px; /* width of the entire scrollbar */
+    }
+
+    .data-content::-webkit-scrollbar-track {
+    background: transparent; /* color of the tracking area */
+
+    }
+
+    .data-content::-webkit-scrollbar-thumb {
+    background: #0f025e; /* color of the scroll thumb */
+    border-radius: 5px;
+
+    }
+
+    .data-content::-webkit-scrollbar-thumb:hover {
+    background: #2208ca; /* color of the scroll thumb on hover */
     }
 
     aside{
