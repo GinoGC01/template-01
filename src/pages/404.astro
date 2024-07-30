@@ -1,1 +1,88 @@
-<h1>No se encontro la ruta! :(</h1>
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Ruta no encontrada">
+    <section class="section-404">
+        <h1>Error 404</h1>
+        <img src="https://media1.tenor.com/images/b09423263e8fe63601e013d964b9329d/tenor.gif?itemid=5741912" alt=""/>
+        <p>Oops! Ocurrió un error! no se econtró la ruta</p>
+        <a href="/">Ir al home</a>
+    </section>
+</Layout>
+
+<style is:global>
+    :root {
+      /* variables header principal  */
+      --span-menu-hamb: rgb(255, 255, 255);
+      --a-menu-hamb: rgb(255, 255, 255);
+      --background-nav: grey;
+  
+      /* background gradient main */
+      --firstvalue: rgba(8, 8, 8, 0.8);
+      --firstvalue1: rgba(8, 8, 8, 0.8);
+      --secondvalue: rgba(45, 62, 158, 0.5);
+      --secondvalue08: rgba(45, 62, 158, 0.8);
+  
+      /* padding sections */
+      --paddingsection-inline: 20px;
+      --paddingsection-inline-desktop: 200px;
+  
+      /* subtitulos */
+  
+      --subtitlesection: 1.7em;
+      --subtitlesection-desk: 2em;
+      --paddingsubtilteSection: 20px 30px;
+      --paddingsubtilteSection-desk: 50px;
+      /* animated */
+      --animate-delay: 0.1s;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Roboto", sans-serif;
+      list-style: none;
+      text-decoration: none;
+      scroll-behavior: smooth;
+    }
+
+    .section-404{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        min-height: 100vh;
+        gap: 1em;
+        background-color: #1e6ab1;
+    }
+
+    .section-404 h1{
+        font-size: 5em;
+        color: white;
+    }
+
+    .section-404 img{
+        display: block;
+        width: 80%;
+        border-radius: 20px;
+    }
+
+    .section-404 p{
+        color: white;
+    }
+
+    .section-404 a{
+        padding: 10px 30px;
+        border: 1px solid white;
+        border-radius: 10px;
+        color: white;
+        background-color: #0e4f8b;
+    }
+
+    @media (width > 700px){
+        .section-404 img{
+            width: 30%;
+        }
+    }
+  </style>
