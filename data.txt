@@ -1,0 +1,82 @@
+# Logografía y branding:
+    - Logo: (Adjuntar URL del logo // enviar svg // envíar imágen como archivo, adjuntar en el mensaje el siguiente código "Logo-001")
+    - Detalles: (Explique todo lo relacionado con valores y principios de la marca. Agregue detalles de diseños específicos y sus características. Por ejemplo, paleta de colores en rgba(n,n,n,1))
+    - Botones:
+        - Contacto: (ingrese el numero de teléfono y mensaje predeterminado opcional)
+        - Conocer más: (ingrese el numero de teléfono y mensaje predeterminado opcional)
+
+# Descripcion general: 
+    - Título: Estudio Jurídico San Miguel.
+    - Subtítulo: Especializados en Familia
+
+# Sobre nosotros:
+    Sub Sección 00n:
+        - Título: (ingrese el título de la sub sección de "Sobre Nosotros")
+        - Contenido:  (ingrese el título de la sub sección de "Sobre Nosotros")
+        - Imágen: (Adjuntar URL de imágen // envíar imágen como archivo, adjuntar en el mensaje el siguiente código "About-00n")
+
+// en caso de ser mas de una sub sección, repetir el proceeso desde Título. Agregar 00n a la sub sección - por ejemplo Sub Sección 001,  Sub Sección 002
+
+
+# Areas prácticas:
+    - Nombre del área: (ingrese el nombre del área)
+    - Título: (opcional)
+    - Subtítulo: (opcional)
+    - Descripcion: (Describa el área laboral)
+    - Areas de departamento:
+        • Liste las areas de departamento.
+            (   - títlo:
+                - descripcion:
+                - detalles: (en caso de detalles aclararlo))
+
+// en caso de ser mas de una área práctica, repetir el proceeso desde nombre del área
+
+# Equipo:
+    - Nombre socio: 
+    - Especialidades:
+    - Posicion: (ej: socio)
+    - Dónde puede ejercer: (ej: República Argentina)
+    - Carrera/s:
+        - nombre de la carrera:
+        - Universidad:
+        - título:
+        - Especialidad:
+        - Descripcion:
+    - Biografía:
+    - Objetivos:
+    - Valores:
+    - Impagen perfil: (Adjuntar URL de imágen // envíar imágen como archivo, adjuntar en el mensaje el siguiente código "Equipo-(nombre del socio)")
+    - Presentacion:
+    - Contactos:
+        . Redes sociales: 
+            . Nombre de la red social:
+            . Url:
+            . username:
+        . Teléfono:
+        . Email:
+
+// En caso de ser más de un socio, repetir proceeso desde nombre de socio.
+
+# Testimonios:
+    - Nombre del usuario:
+    - fecha:
+    - testimonio:
+    - imágen del perfil: (Adjuntar URL de imágen // envíar imágen como archivo, adjuntar en el mensaje el siguiente código "testimonio-(nombre del usuario)")
+    - puntuacion: (estrellas - del 1 al 5)
+
+// En caso de ser más de un testimonio, repetir proceeso desde nombre de usuario.
+
+# Noticias:
+    - Título:
+    - Editor: (nombre del socio editor de la noticia)
+    - Subtítulo:
+    - Fecha:
+    - Categoria: (ej: Derecho Penal)
+    - Sintesis:
+    - Cuerpo de la noticia:
+    - Imagen: (Adjuntar URL de imágen // envíar imágen como archivo, adjuntar en el mensaje el siguiente código "noticia-n-(nombre del editor)")
+    - epígrafe:
+    - Links:
+    - Palabras clave:
+
+    
