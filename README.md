@@ -1,2 +1,2 @@
-# This a template for Integrals juridics Studies
-The fratures is: Responsive, optimizarion, view transition, minimalist.
+# This a template for Integrals juridical Studies
+The fratures is: Responsive, optimization, view-transition by astro, minimalist.
