@@ -61,10 +61,25 @@ const { button01, button02 } = ctaButtons;
         var(--firstvalue) 0%,
         var(--secondvalue) 100%
       ),
-      url("../../../../../images/temp/background-03.webp");
+      url("../images/temp/background-03.webp");
     background-repeat: no-repeat;
     background-position: 15% 50%;
     background-attachment: fixed;
+
+    /* Prefijos para compatibilidad */
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+  }
+
+  @supports not (background: url("image.webp")) {
+    .hero {
+      background: linear-gradient(
+          0deg,
+          var(--firstvalue) 0%,
+          var(--secondvalue) 100%
+        ),
+        url("../images/temp/Estudio-juridico.jpg");
+    }
   }
 
   .hero-content {

@@ -37,18 +37,6 @@ export const areasPracticas = [
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor beatae sed, delectus ea accusamus, ipsam similique minus placeat odit, quam dignissimos perspiciatis aliquam debitis doloremque minima accusantium! Obcaecati, itaque animi.",
       },
       {
-        id: "asesoramiento",
-        title: "Asesoramiento Integral Pre y Post. Contractual.",
-        practicaDescription:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor beatae sed, delectus ea accusamus, ipsam similique minus placeat odit, quam dignissimos perspiciatis aliquam debitis doloremque minima accusantium! Obcaecati, itaque animi.",
-      },
-      {
-        id: "contratos-viviendas",
-        title: "Contratos de Locación de viviendas y locales.",
-        practicaDescription:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor beatae sed, delectus ea accusamus, ipsam similique minus placeat odit, quam dignissimos perspiciatis aliquam debitis doloremque minima accusantium! Obcaecati, itaque animi.",
-      },
-      {
         id: "incumplimientos",
         title: "Ejecución de Incumplimientos Contractuales",
         practicaDescription:
